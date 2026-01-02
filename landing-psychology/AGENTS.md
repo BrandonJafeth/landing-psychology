@@ -14,7 +14,7 @@
 5. [Mejores Prácticas de Astro](#mejores-prácticas-de-astro)
 6. [Principios SOLID Aplicados](#principios-solid-aplicados)
 7. [Leyes de UX/UI](#leyes-de-uxui)
-8. [Heurísticas de Usabilidad](#heurísticas-de-usabilidad)
+8. [Heurísticas de Usabilidad (Nielsen)](#heurísticas-de-usabilidad-nielsen)
 9. [Performance y SEO](#performance-y-seo)
 10. [Gestión de Datos](#gestión-de-datos)
 11. [Formulario de Contacto](#formulario-de-contacto)
@@ -88,6 +88,7 @@ ls -la
 - **Espacios en blanco generosos** (ratio 60/40)
 - **Tipografía clara y legible** (16px mínimo para body)
 - **Máximo 3 niveles de jerarquía visual**
+- **NO usar emojis ni iconos decorativos** a menos que se solicite explícitamente. Priorizar el uso de tipografía y espacio.
 
 ### 2. Performance First
 ```javascript
