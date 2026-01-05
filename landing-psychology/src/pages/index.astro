@@ -1,15 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.tsx';
-import Hero from '../components/Hero.tsx';
-import About from '../components/About.tsx';
-import '../styles/global.css';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.tsx";
+import Hero from "../components/Hero.tsx";
+import About from "../components/About.tsx";
+import Footer from "../components/Footer.tsx";
+import "../styles/global.css";
 ---
 
 <Layout>
-	<Navbar client:load />
-	<main>
-		<Hero client:load />
-		<About client:visible />
-	</main>
+  <Navbar client:load />
+  <main>
+    <Hero client:load />
+    <About client:visible />
+  </main>
+  <Footer client:visible />
 </Layout>

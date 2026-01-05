@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "siteName": "Psicóloga",
+    "tagline": "Tu bienestar es mi prioridad",
+    "subtitle": "Cada día es una oportunidad para crecer, sanar y descubrir tu mejor versión",
+    "description": "Acompañamiento profesional y empático para tu salud mental y bienestar emocional.",
+    "author": "Dra. [Nombre Completo]",
+    "language": "es-MX"
+  },
+  "contact": {
+    "email": "contacto@psicologa.com",
+    "phone": "+34 123 456 789",
+    "location": "Consulta online y presencial",
+    "address": {
+      "street": "Calle X #123",
+      "city": "Ciudad",
+      "state": "Estado",
+      "country": "México",
+      "postalCode": "12345"
+    },
+    "schedule": "Lun - Vie: 9:00 - 18:00"
+  },
+  "social": {
+    "instagram": "https://instagram.com/psicologa",
+    "facebook": "https://facebook.com/psicologa",
+    "linkedin": "https://linkedin.com/in/psicologa"
+  },
+  "navigation": [
+    {
+      "label": "Inicio",
+      "href": "#hero"
+    },
+    {
+      "label": "Servicios",
+      "href": "#servicios"
+    },
+    {
+      "label": "Sobre mí",
+      "href": "#sobre-mi"
+    },
+    {
+      "label": "Testimonios",
+      "href": "#testimonios"
+    },
+    {
+      "label": "Contacto",
+      "href": "#contacto"
+    }
+  ],
+  "footer": {
+    "copyright": "© 2025 Kintsugi",
+    "rights": "Todos los derechos reservados"
+  }
+}

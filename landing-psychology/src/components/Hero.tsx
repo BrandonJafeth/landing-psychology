@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center bg-white overflow-hidden pt-20">
+    <section id='hero' className="relative w-full min-h-screen flex items-center justify-center bg-white overflow-hidden pt-20">
       {/* Background Blobs */}
       <motion.div 
         animate={{ y: [0, -20, 0] }}
@@ -68,7 +68,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
-          whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(85, 154, 149, 0.3)" }}
+          whileHover={{ scale: 1.05, backgroundColor: "#4A8A85", boxShadow: "0px 5px 15px rgba(85, 154, 149, 0.4)" }}
           whileTap={{ scale: 0.95 }}
           className="inline-block bg-[#559A95] text-white text-lg px-8 py-3 rounded-lg font-semibold"
         >
