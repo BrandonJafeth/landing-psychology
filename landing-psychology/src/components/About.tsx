@@ -25,12 +25,18 @@ const About = () => {
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
           
           {/* Image Column - Creative Layout */}
-          <div className="w-full md:w-1/2 relative flex justify-center md:justify-end">
+          <div className="w-full md:w-1/2 relative flex justify-center md:justify-end min-h-[550px] md:min-h-[650px]">
             {/* Abstract Background Shapes */}
             <motion.div 
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-0 left-10 w-72 h-72 bg-[#61B39C]/10 rounded-full blur-3xl z-0"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[500px] md:h-[500px] bg-[#61B39C]/10 rounded-full blur-3xl z-0"
+            />
+            
+            <motion.div 
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute top-10 -right-10 w-40 h-40 bg-[#559A95]/5 rounded-full blur-2xl z-0"
             />
             
             {/* Image Container */}
@@ -39,30 +45,33 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative z-10"
+              className="relative z-10 flex items-end justify-center md:justify-end w-full max-w-[500px] md:max-w-[550px]"
             >
-              {/* Placeholder for Transparent PNG */}
-              <div className="relative w-[300px] h-[400px] md:w-[400px] md:h-[500px]">
-                {/* Image without container background */}
-                <div className="w-full h-full flex items-end justify-center">
-                   <img 
-                    src="/pexels-cottonbro-4098274-removebg-preview.png" 
-                    alt="Psicóloga Daniela Rodriguez" 
-                    className="w-full h-full object-contain object-bottom drop-shadow-2xl hover:scale-105 transition-transform duration-700"
-                   />
-                </div>
+              {/* Main Image Wrapper */}
+              <div className="relative w-full h-[500px] md:h-[600px] flex items-end overflow-hidden">
+                <img 
+                  src="https://res.cloudinary.com/dxrzwnjee/image/upload/v1767658539/43526a6e-d1e1-49b1-b022-09f7d7bfe1dd.png" 
+                  alt="Psicóloga Daniela Rodriguez" 
+                  className="w-full h-full object-contain object-bottom drop-shadow-2xl hover:scale-105 transition-transform duration-700"
+                />
+                
+                {/* Gradient Overlay at Bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/50 to-transparent pointer-events-none z-10"></div>
                 
                 {/* Floating Badge */}
                 <motion.div 
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 max-w-[180px]"
+                  className="absolute bottom-4 left-4 md:left-8 bg-white p-4 md:p-5 rounded-2xl shadow-xl border border-gray-100 max-w-[170px] z-20"
                 >
                   <div className="flex items-center gap-2 mb-1">
-                    <div className="w-3 h-3 rounded-full bg-[#559A95]"></div>
-                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Experiencia</span>
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#559A95]"></div>
+                    <span className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider">Experiencia</span>
                   </div>
-                  <p className="text-[#2C2C2C] font-bold text-lg leading-tight">+8 Años <br/><span className="text-sm font-normal text-gray-500">de trayectoria</span></p>
+                  <p className="text-[#2C2C2C] font-bold text-lg md:text-xl leading-tight">
+                    +8 Años <br/>
+                    <span className="text-xs md:text-sm font-normal text-gray-500">de trayectoria</span>
+                  </p>
                 </motion.div>
               </div>
             </motion.div>
