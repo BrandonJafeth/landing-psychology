@@ -1,9 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import siteData from '../data/site.json';
+import { validateForm } from '../utils/validators';
 
 const Contact = () => {
   const { form } = siteData.contact;
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [isValid, setIsValid] = useState(false);
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    const { valid } = validateForm(formData);
+    setIsValid(valid);
+  }, [formData]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name } = e.target;
+    setTouched(prev => ({ ...prev, [name]: true }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isValid) {
+      // Implement form submission logic here
+      console.log('Form submitted:', formData);
+    }
+  };
 
   return (
     <section id="contacto" className="relative w-full py-16 md:py-32 bg-white overflow-hidden">
@@ -49,7 +81,7 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="w-full max-w-lg bg-white rounded-3xl p-6 md:p-10 border border-[#D5EBE6] shadow-[0_10px_40px_-10px_rgba(85,154,149,0.15)]"
         >
-            <form className="flex flex-col gap-6">
+            <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
                 <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <svg className="h-5 w-5 text-[#8CBDB9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -58,6 +90,10 @@ const Contact = () => {
                     </div>
                     <input 
                         type="text" 
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                         placeholder={form.namePlaceholder}
                         className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#D5EBE6] focus:border-[#559A95] focus:ring-1 focus:ring-[#559A95] outline-none transition-all placeholder-[#A0C4BF] text-[#2C2C2C]"
                     />
@@ -71,6 +107,10 @@ const Contact = () => {
                     </div>
                     <input 
                         type="email" 
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                         placeholder={form.emailPlaceholder}
                         className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#D5EBE6] focus:border-[#559A95] focus:ring-1 focus:ring-[#559A95] outline-none transition-all placeholder-[#A0C4BF] text-[#2C2C2C]"
                     />
@@ -84,6 +124,10 @@ const Contact = () => {
                     </div>
                     <input 
                         type="tel" 
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                         placeholder={form.phonePlaceholder}
                         className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#D5EBE6] focus:border-[#559A95] focus:ring-1 focus:ring-[#559A95] outline-none transition-all placeholder-[#A0C4BF] text-[#2C2C2C]"
                     />
@@ -97,19 +141,28 @@ const Contact = () => {
                     </div>
                     <textarea 
                         rows={4}
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                         placeholder={form.messagePlaceholder}
                         className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#D5EBE6] focus:border-[#559A95] focus:ring-1 focus:ring-[#559A95] outline-none transition-all placeholder-[#A0C4BF] text-[#2C2C2C] resize-none"
                     ></textarea>
                 </div>
 
                 <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full bg-[#CEDCE0] hover:bg-[#8CBDB9] text-white hover:text-white font-medium py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group"
+                    whileHover={isValid ? { scale: 1.02 } : {}}
+                    whileTap={isValid ? { scale: 0.98 } : {}}
+                    className={`w-full py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group ${
+                        isValid 
+                        ? "bg-[#559A95] hover:bg-[#4A8A85] text-white cursor-pointer shadow-lg shadow-[#559A95]/30" 
+                        : "bg-[#CEDCE0] text-white cursor-not-allowed"
+                    }`}
                     type="submit"
+                    disabled={!isValid}
                 >
                     {form.buttonText}
-                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className={`w-5 h-5 transition-transform ${isValid ? "group-hover:translate-x-1" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                     </svg>
                 </motion.button>
