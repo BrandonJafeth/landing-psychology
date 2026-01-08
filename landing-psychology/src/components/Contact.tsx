@@ -43,22 +43,22 @@ const Contact = () => {
         <motion.div 
             animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-20 left-[-30px] md:left-20 w-32 h-32 bg-[#F0F7F5] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] z-0"
+            className="absolute top-20 left-[-30px] md:left-20 w-32 h-32 bg-primary/5 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] z-0"
         />
         <motion.div 
             animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
             transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute top-40 right-[-20px] md:right-32 w-24 h-24 bg-[#DCECE9] rounded-[60%_40%_30%_70%/60%_30%_70%_40%] z-0"
+            className="absolute top-40 right-[-20px] md:right-32 w-24 h-24 bg-secondary/10 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] z-0"
         />
         <motion.div 
             animate={{ scale: [1, 1.05, 1], rotate: [0, 3, 0] }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute bottom-20 left-[-20px] md:left-32 w-28 h-28 bg-[#F0F7F5] rounded-[50%_50%_50%_50%/60%_60%_40%_40%] z-0"
+            className="absolute bottom-20 left-[-20px] md:left-32 w-28 h-28 bg-primary/5 rounded-[50%_50%_50%_50%/60%_60%_40%_40%] z-0"
         />
         <motion.div 
             animate={{ scale: [1, 1.1, 1], rotate: [0, -3, 0] }}
             transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute bottom-10 right-[-20px] md:right-20 w-40 h-36 bg-[#DCECE9] rounded-[30%_70%_70%_30%/30%_30%_70%_70%] opacity-60 z-0"
+            className="absolute bottom-10 right-[-20px] md:right-20 w-40 h-36 bg-secondary/10 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] opacity-60 z-0"
         />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center">
@@ -69,7 +69,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="max-w-2xl text-center mb-12"
         >
-          <p className="text-xl md:text-2xl text-[#2C2C2C] font-medium leading-relaxed">
+          <p className="text-xl md:text-2xl text-text-primary font-medium leading-relaxed">
             {form.title}
           </p>
         </motion.div>
@@ -79,12 +79,12 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="w-full max-w-lg bg-white rounded-3xl p-6 md:p-10 border border-[#D5EBE6] shadow-[0_10px_40px_-10px_rgba(85,154,149,0.15)]"
+            className="w-full max-w-lg bg-white rounded-3xl p-6 md:p-10 border border-secondary/20 shadow-[0_10px_40px_-10px_rgba(85,154,149,0.15)]"
         >
             <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
                 <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <svg className="h-5 w-5 text-[#8CBDB9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="h-5 w-5 text-primary/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                         </svg>
                     </div>
@@ -95,13 +95,13 @@ const Contact = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         placeholder={form.namePlaceholder}
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#D5EBE6] focus:border-[#559A95] focus:ring-1 focus:ring-[#559A95] outline-none transition-all placeholder-[#A0C4BF] text-[#2C2C2C]"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder-gray-400 text-text-primary"
                     />
                 </div>
 
                 <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <svg className="h-5 w-5 text-[#8CBDB9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="h-5 w-5 text-primary/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                         </svg>
                     </div>
@@ -112,13 +112,13 @@ const Contact = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         placeholder={form.emailPlaceholder}
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#D5EBE6] focus:border-[#559A95] focus:ring-1 focus:ring-[#559A95] outline-none transition-all placeholder-[#A0C4BF] text-[#2C2C2C]"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder-gray-400 text-text-primary"
                     />
                 </div>
 
                 <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <svg className="h-5 w-5 text-[#8CBDB9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="h-5 w-5 text-primary/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                         </svg>
                     </div>
@@ -129,13 +129,13 @@ const Contact = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         placeholder={form.phonePlaceholder}
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#D5EBE6] focus:border-[#559A95] focus:ring-1 focus:ring-[#559A95] outline-none transition-all placeholder-[#A0C4BF] text-[#2C2C2C]"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder-gray-400 text-text-primary"
                     />
                 </div>
 
                 <div className="relative">
                     <div className="absolute top-3 left-0 pl-3 flex items-start pointer-events-none">
-                        <svg className="h-5 w-5 text-[#8CBDB9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="h-5 w-5 text-primary/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
                         </svg>
                     </div>
@@ -146,7 +146,7 @@ const Contact = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         placeholder={form.messagePlaceholder}
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#D5EBE6] focus:border-[#559A95] focus:ring-1 focus:ring-[#559A95] outline-none transition-all placeholder-[#A0C4BF] text-[#2C2C2C] resize-none"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder-gray-400 text-text-primary resize-none"
                     ></textarea>
                 </div>
 

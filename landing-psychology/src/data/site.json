@@ -52,12 +52,12 @@
       {
         "title": "Terapia Presencial",
         "description": "Un espacio físico seguro, cálido y confidencial diseñado para tu tranquilidad y desconexión del ruido exterior.",
-        "color": "bg-[#E0F2F1]"
+        "color": "bg-secondary/10"
       },
       {
         "title": "Terapia Online",
         "description": "Sesiones flexibles desde la comodidad de tu hogar, manteniendo la misma cercanía y profesionalismo.",
-        "color": "bg-[#E8F5E9]"
+        "color": "bg-primary/5"
       }
     ],
     "specializations": {

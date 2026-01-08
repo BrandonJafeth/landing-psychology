@@ -24,27 +24,27 @@ const Services = () => {
   const { services } = siteData;
 
   return (
-    <section id="servicios" className="relative w-full py-16 md:py-32 bg-white overflow-hidden">
+    <section id="servicios" className="relative w-full py-16 md:py-32 bg-background overflow-hidden">
       {/* Background Organic Blobs */}
        <motion.div 
         animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-10 left-[-20px] md:left-10 w-24 h-24 bg-[#D5EBE6] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] z-0"
+        className="absolute top-10 left-[-20px] md:left-10 w-24 h-24 bg-primary/10 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] z-0"
       />
        <motion.div 
         animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute top-20 right-[-20px] md:right-20 w-32 h-28 bg-[#D5EBE6] rounded-[60%_40%_30%_70%/60%_30%_70%_40%] z-0"
+        className="absolute top-20 right-[-20px] md:right-20 w-32 h-28 bg-primary/10 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] z-0"
       />
        <motion.div 
         animate={{ scale: [1, 1.05, 1], rotate: [0, 3, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-10 left-[-30px] md:left-10 w-28 h-28 bg-[#D5EBE6] rounded-[50%_50%_50%_50%/60%_60%_40%_40%] z-0"
+        className="absolute bottom-10 left-[-30px] md:left-10 w-28 h-28 bg-secondary/10 rounded-[50%_50%_50%_50%/60%_60%_40%_40%] z-0"
       />
        <motion.div 
         animate={{ scale: [1, 1.1, 1], rotate: [0, -3, 0] }}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        className="absolute bottom-20 right-[-30px] md:right-10 w-40 h-36 bg-[#AEDCD2] rounded-[30%_70%_70%_30%/30%_30%_70%_70%] opacity-60 z-0"
+        className="absolute bottom-20 right-[-30px] md:right-10 w-40 h-36 bg-secondary/15 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] opacity-60 z-0"
       />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -55,8 +55,8 @@ const Services = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] uppercase tracking-wide">
-            {services.titlePrefix} <span className="text-[#559A95]">{services.titleHighlight}</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-text-primary uppercase tracking-wide">
+            {services.titlePrefix} <span className="text-primary">{services.titleHighlight}</span>
           </h2>
         </motion.div>
 
@@ -69,17 +69,17 @@ const Services = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className="bg-white rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center lg:items-start lg:text-left h-full"
+              className="bg-white rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 border border-gray-100 flex flex-col items-center text-center lg:items-start lg:text-left h-full"
             >
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#559A95] flex items-center justify-center mb-6 shadow-lg shadow-[#559A95]/30">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary flex items-center justify-center mb-6 shadow-lg shadow-primary/30">
                 {iconMap[item.icon as keyof typeof iconMap]}
               </div>
               
-              <h3 className="text-xl md:text-2xl font-bold text-[#2C2C2C] mb-4">
+              <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-4">
                 {item.title}
               </h3>
               
-              <p className="text-[#666666] leading-relaxed">
+              <p className="text-text-secondary leading-relaxed">
                 {item.description}
               </p>
             </motion.div>
