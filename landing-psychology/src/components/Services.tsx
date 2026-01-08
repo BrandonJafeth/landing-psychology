@@ -53,7 +53,7 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] uppercase tracking-wide">
             {services.titlePrefix} <span className="text-[#559A95]">{services.titleHighlight}</span>
@@ -69,7 +69,7 @@ const Services = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-start h-full"
+              className="bg-white rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center lg:items-start lg:text-left h-full"
             >
               <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#559A95] flex items-center justify-center mb-6 shadow-lg shadow-[#559A95]/30">
                 {iconMap[item.icon as keyof typeof iconMap]}

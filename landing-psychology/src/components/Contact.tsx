@@ -47,7 +47,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="w-full max-w-lg bg-white rounded-3xl p-8 md:p-10 border border-[#D5EBE6] shadow-[0_10px_40px_-10px_rgba(85,154,149,0.15)]"
+            className="w-full max-w-lg bg-white rounded-3xl p-6 md:p-10 border border-[#D5EBE6] shadow-[0_10px_40px_-10px_rgba(85,154,149,0.15)]"
         >
             <form className="flex flex-col gap-6">
                 <div className="relative">
