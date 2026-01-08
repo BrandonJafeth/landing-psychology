@@ -22,20 +22,20 @@ const Testimonials = () => {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.6,
-         ease: easeInOut
+        duration: 0.8,
+        ease: [0.25, 0.8, 0.25, 1]
       }
     }
   };
 
   return (
-    <section id="testimonios" className="relative py-20 px-6 bg-white overflow-hidden">
+    <section id="testimonios" className="relative py-12 md:py-20 px-6 bg-white overflow-hidden">
       {/* Background Text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
         <h2 className="text-[4rem] sm:text-[6rem] md:text-[9rem] lg:text-[12rem] xl:text-[15rem] font-bold text-[#F5F5F5] select-none leading-none whitespace-nowrap px-4">
@@ -48,10 +48,10 @@ const Testimonials = () => {
         {/* Title */}
         <motion.div 
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: "easeInOut" }}
+          transition={{ duration: 0.8, ease: [0.25, 0.8, 0.25, 1] }}
         >
           <h2 className="text-3xl md:text-5xl font-bold text-[#2C2C2C] mb-3">
             {testimonialsData.section.title}{' '}

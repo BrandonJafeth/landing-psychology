@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section id='hero' className="relative w-full min-h-screen flex items-center justify-center bg-white overflow-hidden pt-20">
+    <section id='hero' className="relative w-full py-32 md:py-0 md:min-h-screen flex items-center justify-center bg-white overflow-hidden">
       {/* Background Blobs */}
       <motion.div 
         animate={{ y: [0, -20, 0] }}
@@ -45,9 +45,9 @@ const Hero = () => {
 
       <div className="relative z-10 text-center max-w-4xl px-6">
         <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 1.0, ease: [0.25, 0.8, 0.25, 1], delay: 0.2 }}
           className="text-4xl md:text-6xl font-bold text-[#2C2C2C] mb-6 leading-tight"
         >
           Un espacio seguro <br />
@@ -57,7 +57,7 @@ const Hero = () => {
         <motion.p 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          transition={{ duration: 1.0, ease: [0.25, 0.8, 0.25, 1], delay: 0.4 }}
           className="text-lg md:text-xl text-[#666666] mb-10 max-w-2xl mx-auto"
         >
           Acompañamiento profesional y humano en tu proceso de bienestar emocional

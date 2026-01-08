@@ -20,12 +20,12 @@ const About = () => {
   ];
 
   return (
-    <section id="sobre-mi" className="relative w-full py-20 md:py-32 bg-white overflow-hidden">
+    <section id="sobre-mi" className="relative w-full py-12 md:py-20 lg:py-32 bg-white overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           
           {/* Image Column - Creative Layout */}
-          <div className="w-full md:w-1/2 relative flex justify-center md:justify-end min-h-[550px] md:min-h-[650px]">
+          <div className="w-full lg:w-1/2 relative flex justify-center lg:justify-end min-h-[500px] md:min-h-[600px]">
             {/* Abstract Background Shapes */}
             <motion.div 
               animate={{ scale: [1, 1.1, 1] }}
@@ -41,16 +41,16 @@ const About = () => {
             
             {/* Image Container */}
             <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative z-10 flex items-end justify-center md:justify-end w-full max-w-[500px] md:max-w-[550px]"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.2, ease: [0.25, 0.8, 0.25, 1] }}
+              className="relative z-10 flex items-end justify-center lg:justify-end w-full max-w-[500px] lg:max-w-[550px]"
             >
               {/* Main Image Wrapper */}
-              <div className="relative w-full h-[500px] md:h-[600px] flex items-end overflow-hidden">
+                <div className="relative w-full h-[500px] md:h-[600px] flex items-end overflow-hidden">
                 <img 
-                  src="https://res.cloudinary.com/dxrzwnjee/image/upload/v1767658539/43526a6e-d1e1-49b1-b022-09f7d7bfe1dd.png" 
+                  src="/43526a6e-d1e1-49b1-b022-09f7d7bfe1dd (1).png" 
                   alt="Psicóloga Daniela Rodriguez" 
                   className="w-full h-full object-contain object-bottom drop-shadow-2xl hover:scale-105 transition-transform duration-700"
                 />
@@ -65,25 +65,25 @@ const About = () => {
                   className="absolute bottom-4 left-4 md:left-8 bg-white p-4 md:p-5 rounded-2xl shadow-xl border border-gray-100 max-w-[170px] z-20"
                 >
                   <div className="flex items-center gap-2 mb-1">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#559A95]"></div>
-                    <span className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider">Experiencia</span>
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#559A95]"></div>
+                  <span className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider">Experiencia</span>
                   </div>
                   <p className="text-[#2C2C2C] font-bold text-lg md:text-xl leading-tight">
-                    +8 Años <br/>
-                    <span className="text-xs md:text-sm font-normal text-gray-500">de trayectoria</span>
+                  +8 Años <br/>
+                  <span className="text-xs md:text-sm font-normal text-gray-500">de trayectoria</span>
                   </p>
                 </motion.div>
-              </div>
+                </div>
             </motion.div>
           </div>
 
           {/* Content Column */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full lg:w-1/2">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.0, ease: [0.25, 0.8, 0.25, 1], delay: 0.2 }}
             >
               <h2 className="text-sm font-bold text-[#559A95] uppercase tracking-widest mb-2">Sobre Mí</h2>
               <h3 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6">
@@ -108,15 +108,24 @@ const About = () => {
               </div>
 
               {/* Specializations Tags */}
-              <div>
-                <h4 className="font-semibold text-[#2C2C2C] mb-4">
+              <div className="mt-8">
+                <h4 className="font-semibold text-[#2C2C2C] mb-6 flex items-center gap-2">
                   Especialidades
                 </h4>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-x-4 gap-y-3 md:gap-x-8 md:gap-y-4">
                   {specializations.map((spec, index) => (
-                    <span key={index} className="px-4 py-2 bg-gray-50 text-[#666666] text-sm rounded-full border border-gray-100 hover:border-[#559A95] hover:text-[#559A95] transition-colors cursor-default">
-                      {spec}
-                    </span>
+                    <div 
+                      key={index}
+                      className="flex items-center gap-2 text-[#666666] group select-none"
+                    >
+                      <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#559A95] opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all duration-300" fill="currentColor">
+                        <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
+                      </svg>
+                      <span className="text-lg relative">
+                        {spec}
+                        <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#559A95] transition-all duration-300 group-hover:w-full"></span>
+                      </span>
+                    </div>
                   ))}
                 </div>
               </div>

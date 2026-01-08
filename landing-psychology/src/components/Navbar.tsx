@@ -15,7 +15,7 @@ const Navbar = () => {
     <motion.nav 
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 1.0, ease: [0.25, 0.8, 0.25, 1] }}
       className="w-full bg-white/90 backdrop-blur-sm py-4 px-6 md:px-12 flex justify-between items-center shadow-sm fixed top-0 z-50"
     >
       <div className="flex items-center gap-3">
