@@ -23,21 +23,21 @@ const Navbar = () => {
           </svg>
         </motion.div>
         <div className="flex flex-col">
-          <span className="font-bold text-lg text-[#2C2C2C] leading-tight">Psicologa</span>
-          <span className="text-sm text-[#559A95] font-medium">Daniela Rodriguez</span>
+          <span className="font-bold text-lg text-[#2C2C2C] leading-tight">{meta.siteName}</span>
+          <span className="text-sm text-[#559A95] font-medium">{meta.author}</span>
         </div>
       </div>
 
       <div className="hidden md:flex items-center gap-8">
-        {navItems.map((item) => (
+        {navigation.map((item) => (
           <motion.a 
-            key={item.name}
+            key={item.label}
             href={item.href} 
             className="text-[#666666] hover:text-[#559A95] transition-colors duration-300 font-medium relative group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {item.name}
+            {item.label}
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#559A95] transition-all duration-300 group-hover:w-full"></span>
           </motion.a>
         ))}

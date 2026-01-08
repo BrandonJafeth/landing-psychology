@@ -1,23 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import siteData from '../data/site.json';
 
 const About = () => {
-  const modalities = [
-    {
-      title: "Terapia Presencial",
-      description: "Un espacio físico seguro, cálido y confidencial diseñado para tu tranquilidad y desconexión del ruido exterior.",
-      color: "bg-[#E0F2F1]" // Very light teal
-    },
-    {
-      title: "Terapia Online",
-      description: "Sesiones flexibles desde la comodidad de tu hogar, manteniendo la misma cercanía y profesionalismo.",
-      color: "bg-[#E8F5E9]" // Very light green
-    }
-  ];
-
-  const specializations = [
-    "Ansiedad y Estrés", "Depresión", "Autoestima", "Duelo", "Relaciones", "Crecimiento Personal"
-  ];
+  const { about } = siteData;
 
   return (
     <section id="sobre-mi" className="relative w-full py-12 md:py-20 lg:py-32 bg-white overflow-hidden">
@@ -50,8 +36,8 @@ const About = () => {
               {/* Main Image Wrapper */}
                 <div className="relative w-full h-[500px] md:h-[600px] flex items-end overflow-hidden">
                 <img 
-                  src="/43526a6e-d1e1-49b1-b022-09f7d7bfe1dd (1).png" 
-                  alt="Psicóloga Daniela Rodriguez" 
+                  src={about.image} 
+                  alt={`Psicóloga ${about.titleHighlight}`} 
                   className="w-full h-full object-contain object-bottom drop-shadow-2xl hover:scale-105 transition-transform duration-700"
                 />
                 
@@ -66,11 +52,11 @@ const About = () => {
                 >
                   <div className="flex items-center gap-2 mb-1">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#559A95]"></div>
-                  <span className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider">Experiencia</span>
+                  <span className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider">{about.experience.badgeTitle}</span>
                   </div>
                   <p className="text-[#2C2C2C] font-bold text-lg md:text-xl leading-tight">
-                  +8 Años <br/>
-                  <span className="text-xs md:text-sm font-normal text-gray-500">de trayectoria</span>
+                  {about.experience.years} <br/>
+                  <span className="text-xs md:text-sm font-normal text-gray-500">{about.experience.label}</span>
                   </p>
                 </motion.div>
                 </div>
@@ -85,17 +71,17 @@ const About = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1.0, ease: [0.25, 0.8, 0.25, 1], delay: 0.2 }}
             >
-              <h2 className="text-sm font-bold text-[#559A95] uppercase tracking-widest mb-2">Sobre Mí</h2>
+              <h2 className="text-sm font-bold text-[#559A95] uppercase tracking-widest mb-2">{about.sectionTag}</h2>
               <h3 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6">
-                Hola, soy <span className="text-[#559A95]">Daniela Rodriguez</span>
+                {about.titlePrefix} <span className="text-[#559A95]">{about.titleHighlight}</span>
               </h3>
               <p className="text-[#666666] text-lg leading-relaxed mb-8">
-                Mi enfoque terapéutico se basa en crear un vínculo de confianza genuina. Entiendo que cada historia es única, por lo que adapto mis herramientas para acompañarte en tu proceso de autodescubrimiento y sanación.
+                {about.description}
               </p>
 
               {/* Modalities Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                {modalities.map((item, index) => (
+                {about.modalities.map((item, index) => (
                   <motion.div 
                     key={index}
                     whileHover={{ y: -5, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.1)" }}
@@ -110,10 +96,10 @@ const About = () => {
               {/* Specializations Tags */}
               <div className="mt-8">
                 <h4 className="font-semibold text-[#2C2C2C] mb-6 flex items-center gap-2">
-                  Especialidades
+                  {about.specializations.title}
                 </h4>
                 <div className="flex flex-wrap gap-x-4 gap-y-3 md:gap-x-8 md:gap-y-4">
-                  {specializations.map((spec, index) => (
+                  {about.specializations.items.map((spec, index) => (
                     <div 
                       key={index}
                       className="flex items-center gap-2 text-[#666666] group select-none"
