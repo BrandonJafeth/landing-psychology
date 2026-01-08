@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const navItems = [
-  { name: "Sobre Mi", href: "#sobre-mi" },
-  { name: "Servicios", href: "#servicios" },
-  { name: "Testimonios", href: "#testimonios" },
-  { name: "Contacto", href: "#contacto" },
-];
+import siteData from '../data/site.json';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { navigation, meta } = siteData;
 
   return (
     <motion.nav 

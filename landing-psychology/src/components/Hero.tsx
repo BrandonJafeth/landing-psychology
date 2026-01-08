@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import siteData from '../data/site.json';
 
 const Hero = () => {
+  const { hero } = siteData;
+
   return (
     <section id='hero' className="relative w-full py-32 md:py-0 md:min-h-screen flex items-center justify-center bg-white overflow-hidden">
       {/* Background Blobs */}
@@ -50,8 +53,8 @@ const Hero = () => {
           transition={{ duration: 1.0, ease: [0.25, 0.8, 0.25, 1], delay: 0.2 }}
           className="text-4xl md:text-6xl font-bold text-[#2C2C2C] mb-6 leading-tight"
         >
-          Un espacio seguro <br />
-          para <span className="text-[#559A95]">entenderte</span> y sanar
+          {hero.titleLine1} <br />
+          {hero.titleLine2Prefix} <span className="text-[#559A95]">{hero.titleHighlight}</span> {hero.titleLine2Suffix}
         </motion.h1>
         
         <motion.p 
@@ -60,11 +63,11 @@ const Hero = () => {
           transition={{ duration: 1.0, ease: [0.25, 0.8, 0.25, 1], delay: 0.4 }}
           className="text-lg md:text-xl text-[#666666] mb-10 max-w-2xl mx-auto"
         >
-          Acompañamiento profesional y humano en tu proceso de bienestar emocional
+          {hero.subtitle}
         </motion.p>
 
        <motion.a 
-            href="#contacto"
+            href={hero.ctaLink}
             className="inline-block bg-[#559A95] text-white px-8 py-3 rounded-lg font-semibold text-base"
             whileHover={{ 
               scale: 1.05,
@@ -72,7 +75,7 @@ const Hero = () => {
             }}
             whileTap={{ scale: 0.95 }}
           >
-            Agenda tu primera sesión
+            {hero.ctaText}
           </motion.a>
       </div>
     </section>

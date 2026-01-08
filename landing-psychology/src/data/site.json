@@ -1,11 +1,50 @@
 {
   "meta": {
-    "siteName": "Psicóloga",
+    "siteName": "Psicologa",
+    "author": "Daniela Rodriguez",
     "tagline": "Tu bienestar es mi prioridad",
     "subtitle": "Cada día es una oportunidad para crecer, sanar y descubrir tu mejor versión",
     "description": "Acompañamiento profesional y empático para tu salud mental y bienestar emocional.",
-    "author": "Dra. [Nombre Completo]",
     "language": "es-MX"
+  },
+  "hero": {
+    "titleLine1": "Un espacio seguro",
+    "titleLine2Prefix": "para",
+    "titleHighlight": "entenderte",
+    "titleLine2Suffix": "y sanar",
+    "subtitle": "Acompañamiento profesional y humano en tu proceso de bienestar emocional",
+    "ctaText": "Agenda tu primera sesión",
+    "ctaLink": "#contacto"
+  },
+  "about": {
+    "sectionTag": "Sobre Mí",
+    "titlePrefix": "Hola, soy",
+    "titleHighlight": "Daniela Rodriguez",
+    "description": "Mi enfoque terapéutico se basa en crear un vínculo de confianza genuina. Entiendo que cada historia es única, por lo que adapto mis herramientas para acompañarte en tu proceso de autodescubrimiento y sanación.",
+    "image": "/43526a6e-d1e1-49b1-b022-09f7d7bfe1dd (1).png",
+    "experience": {
+      "badgeTitle": "Experiencia",
+      "years": "+8 Años",
+      "label": "de trayectoria"
+    },
+    "modalities": [
+      {
+        "title": "Terapia Presencial",
+        "description": "Un espacio físico seguro, cálido y confidencial diseñado para tu tranquilidad y desconexión del ruido exterior.",
+        "color": "bg-[#E0F2F1]"
+      },
+      {
+        "title": "Terapia Online",
+        "description": "Sesiones flexibles desde la comodidad de tu hogar, manteniendo la misma cercanía y profesionalismo.",
+        "color": "bg-[#E8F5E9]"
+      }
+    ],
+    "specializations": {
+      "title": "Especialidades",
+      "items": [
+        "Ansiedad y Estrés", "Depresión", "Autoestima", "Duelo", "Relaciones", "Crecimiento Personal"
+      ]
+    }
   },
   "contact": {
     "email": "contacto@psicologa.com",
@@ -27,16 +66,12 @@
   },
   "navigation": [
     {
-      "label": "Inicio",
-      "href": "#hero"
+      "label": "Sobre Mi",
+      "href": "#sobre-mi"
     },
     {
       "label": "Servicios",
       "href": "#servicios"
-    },
-    {
-      "label": "Sobre mí",
-      "href": "#sobre-mi"
     },
     {
       "label": "Testimonios",
