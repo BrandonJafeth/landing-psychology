@@ -1,0 +1,93 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import siteData from '../data/site.json';
+
+const iconMap: { [key: string]: React.ReactNode } = {
+  user: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 md:w-10 md:h-10 text-white">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+    </svg>
+  ),
+  users: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 md:w-10 md:h-10 text-white">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+    </svg>
+  ),
+  home: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 md:w-10 md:h-10 text-white">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+    </svg>
+  )
+};
+
+const Services = () => {
+  const { services } = siteData;
+
+  return (
+    <section id="servicios" className="relative w-full py-16 md:py-32 bg-white overflow-hidden">
+      {/* Background Organic Blobs */}
+       <motion.div 
+        animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-10 left-[-20px] md:left-10 w-24 h-24 bg-[#D5EBE6] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] z-0"
+      />
+       <motion.div 
+        animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute top-20 right-[-20px] md:right-20 w-32 h-28 bg-[#D5EBE6] rounded-[60%_40%_30%_70%/60%_30%_70%_40%] z-0"
+      />
+       <motion.div 
+        animate={{ scale: [1, 1.05, 1], rotate: [0, 3, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute bottom-10 left-[-30px] md:left-10 w-28 h-28 bg-[#D5EBE6] rounded-[50%_50%_50%_50%/60%_60%_40%_40%] z-0"
+      />
+       <motion.div 
+        animate={{ scale: [1, 1.1, 1], rotate: [0, -3, 0] }}
+        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        className="absolute bottom-20 right-[-30px] md:right-10 w-40 h-36 bg-[#AEDCD2] rounded-[30%_70%_70%_30%/30%_30%_70%_70%] opacity-60 z-0"
+      />
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] uppercase tracking-wide">
+            {services.titlePrefix} <span className="text-[#559A95]">{services.titleHighlight}</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10 max-w-6xl mx-auto">
+          {services.items.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-start h-full"
+            >
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#559A95] flex items-center justify-center mb-6 shadow-lg shadow-[#559A95]/30">
+                {iconMap[item.icon as keyof typeof iconMap]}
+              </div>
+              
+              <h3 className="text-xl md:text-2xl font-bold text-[#2C2C2C] mb-4">
+                {item.title}
+              </h3>
+              
+              <p className="text-[#666666] leading-relaxed">
+                {item.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Services;

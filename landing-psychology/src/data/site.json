@@ -16,6 +16,27 @@
     "ctaText": "Agenda tu primera sesión",
     "ctaLink": "#contacto"
   },
+  "services": {
+    "titlePrefix": "MIS MODALIDADES DE",
+    "titleHighlight": "TRABAJO",
+    "items": [
+      {
+        "title": "Terapia Individual",
+        "description": "Sesiones personalizadas donde exploramos juntos tus pensamientos, emociones y experiencias para alcanzar el bienestar que mereces.",
+        "icon": "user"
+      },
+      {
+        "title": "Terapia de Pareja",
+        "description": "Un espacio seguro para fortalecer vínculos, mejorar la comunicación y construir relaciones más saludables y satisfactorias.",
+        "icon": "users"
+      },
+      {
+        "title": "Terapia Familiar",
+        "description": "Un espacio seguro para fortalecer vínculos, mejorar la comunicación y construir relaciones más saludables y satisfactorias en el núcleo familiar.",
+        "icon": "home"
+      }
+    ]
+  },
   "about": {
     "sectionTag": "Sobre Mí",
     "titlePrefix": "Hola, soy",
@@ -57,7 +78,16 @@
       "country": "México",
       "postalCode": "12345"
     },
-    "schedule": "Lun - Vie: 9:00 - 18:00"
+    "schedule": "Lun - Vie: 9:00 - 18:00",
+    "form": {
+      "title": "Estoy aquí para escucharte. Cuéntame cómo puedo acompañarte en este camino hacia una mejor versión de ti",
+      "namePlaceholder": "¿Cómo te llamas?",
+      "emailPlaceholder": "tu.email@ejemplo.com",
+      "phonePlaceholder": "Tu número de contacto (opcional)",
+      "messagePlaceholder": "Cuéntame un poco sobre ti y qué te gustaría tratar",
+      "buttonText": "Enviar mensaje",
+      "disclaimer": "Tu información está segura y será tratada de forma confidencial"
+    }
   },
   "social": {
     "instagram": "https://instagram.com/psicologa",

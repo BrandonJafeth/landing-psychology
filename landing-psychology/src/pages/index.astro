@@ -3,7 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.tsx";
 import Hero from "../components/Hero.tsx";
 import About from "../components/About.tsx";
+import Services from "../components/Services.tsx";
 import Testimonials from "../components/Testimonials.tsx";
+import Contact from "../components/Contact.tsx";
 import Footer from "../components/Footer.tsx";
 import "../styles/global.css";
 ---
@@ -13,7 +15,9 @@ import "../styles/global.css";
   <main>
     <Hero client:load />
     <About client:visible />
+    <Services client:visible />
     <Testimonials client:visible />
+    <Contact client:visible />
   </main>
   <Footer client:visible />
 </Layout>
