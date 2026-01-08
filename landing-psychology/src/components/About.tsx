@@ -98,16 +98,16 @@ const About = () => {
                 <h4 className="font-semibold text-[#2C2C2C] mb-6 flex items-center gap-2">
                   {about.specializations.title}
                 </h4>
-                <div className="flex flex-wrap gap-x-4 gap-y-3 md:gap-x-8 md:gap-y-4">
+                <div className="grid grid-cols-2 gap-x-2 gap-y-4 sm:flex sm:flex-wrap sm:gap-x-8 sm:gap-y-4">
                   {about.specializations.items.map((spec, index) => (
                     <div 
                       key={index}
                       className="flex items-center gap-2 text-[#666666] group select-none"
                     >
-                      <svg viewBox="0 0 24 24" className="w-3 h-3 text-[#559A95] opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all duration-300" fill="currentColor">
+                      <svg viewBox="0 0 24 24" className="w-3 h-3 min-w-[12px] text-[#559A95] opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all duration-300" fill="currentColor">
                         <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
                       </svg>
-                      <span className="text-lg relative">
+                      <span className="text-sm md:text-lg relative leading-tight">
                         {spec}
                         <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#559A95] transition-all duration-300 group-hover:w-full"></span>
                       </span>
