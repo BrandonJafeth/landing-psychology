@@ -523,6 +523,44 @@ export default defineConfig({
 #### 4. CSS Critical Inline
 ```astro
 <head>
+  #### 5. Animaciones Fluidas (GSAP Optimizado)
+    - Uso estricto de `GSAP` para animaciones complejas.
+    - Preferir `CSS transitions` para hovers simples.
+    - Configuración de `gsap.context()` para limpieza en componentes Astro.
+    - Uso de `Will-Change` solo cuando sea estrictamente necesario.
+
+    ```javascript
+    // src/utils/animations.ts
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    export const fadeUp = (element: Element) => {
+      return gsap.fromTo(
+       element,
+       { opacity: 0, y: 30 },
+       {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+       }
+      );
+    };
+    
+    // Uso en componente Astro
+    // <script>
+    //   import { fadeUp } from '../utils/animations';
+    //   fadeUp(document.querySelector('.hero-title'));
+    // </script>
+    ```
+
   <style is:inline>
     /* Critical CSS inline para first paint */
     body { font-family: system-ui; margin: 0; }

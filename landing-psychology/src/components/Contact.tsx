@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import siteData from '../data/site.json';
 import { validateForm } from '../utils/validators';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
   const { form } = siteData.contact;
@@ -13,6 +17,7 @@ const Contact = () => {
   });
   const [isValid, setIsValid] = useState(false);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const container = useRef(null);
 
   useEffect(() => {
     const { valid } = validateForm(formData);
@@ -37,49 +42,126 @@ const Contact = () => {
     }
   };
 
+  useGSAP(() => {
+    // Background Organic Blobs
+    gsap.to('.blob-1', {
+      y: -10,
+      rotation: 5,
+      duration: 8,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+
+    gsap.to('.blob-2', {
+      y: 15,
+      rotation: -5,
+      duration: 9,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      delay: 1
+    });
+
+    gsap.to('.blob-3', {
+      scale: 1.05,
+      rotation: 3,
+      duration: 10,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      delay: 2
+    });
+
+    gsap.to('.blob-4', {
+      scale: 1.1,
+      rotation: -3,
+      duration: 11,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      delay: 0.5
+    });
+
+    // Content Animations
+    gsap.fromTo('.contact-title',
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: '.contact-title',
+          start: "top 85%",
+          once: true
+        }
+      }
+    );
+
+    gsap.fromTo('.contact-form-container',
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: '.contact-form-container',
+          start: "top 85%",
+          once: true
+        }
+      }
+    );
+
+    // Button interactions handled via CSS classes or manual event listeners if complex
+    // Simple hover scale can be done with gsap utils if needed, but CSS is often cleaner for simple states
+  }, { scope: container });
+
+  // Helper for button hover animation
+  const handleButtonHover = (e: React.MouseEvent) => {
+    if (isValid) {
+      gsap.to(e.currentTarget, { scale: 1.02, duration: 0.2 });
+    }
+  };
+
+  const handleButtonLeave = (e: React.MouseEvent) => {
+    gsap.to(e.currentTarget, { scale: 1, duration: 0.2 });
+  };
+
+  const handleButtonTap = (e: React.MouseEvent) => {
+    if (isValid) {
+      gsap.to(e.currentTarget, { scale: 0.98, duration: 0.1, yoyo: true, repeat: 1 });
+    }
+  };
+
+
   return (
-    <section id="contacto" className="relative w-full py-16 md:py-32 bg-white overflow-hidden">
+    <section ref={container} id="contacto" className="relative w-full py-16 md:py-32 bg-white overflow-hidden">
         {/* Background Organic Blobs */}
-        <motion.div 
-            animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-20 left-[-30px] md:left-20 w-32 h-32 bg-primary/5 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] z-0"
+        <div 
+            className="blob-1 absolute top-20 left-[-30px] md:left-20 w-32 h-32 bg-primary/5 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] z-0"
         />
-        <motion.div 
-            animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
-            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute top-40 right-[-20px] md:right-32 w-24 h-24 bg-secondary/10 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] z-0"
+        <div 
+            className="blob-2 absolute top-40 right-[-20px] md:right-32 w-24 h-24 bg-secondary/10 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] z-0"
         />
-        <motion.div 
-            animate={{ scale: [1, 1.05, 1], rotate: [0, 3, 0] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute bottom-20 left-[-20px] md:left-32 w-28 h-28 bg-primary/5 rounded-[50%_50%_50%_50%/60%_60%_40%_40%] z-0"
+        <div 
+            className="blob-3 absolute bottom-20 left-[-20px] md:left-32 w-28 h-28 bg-primary/5 rounded-[50%_50%_50%_50%/60%_60%_40%_40%] z-0"
         />
-        <motion.div 
-            animate={{ scale: [1, 1.1, 1], rotate: [0, -3, 0] }}
-            transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute bottom-10 right-[-20px] md:right-20 w-40 h-36 bg-secondary/10 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] opacity-60 z-0"
+        <div 
+            className="blob-4 absolute bottom-10 right-[-20px] md:right-20 w-40 h-36 bg-secondary/10 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] opacity-60 z-0"
         />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center">
         
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl text-center mb-12"
+        <div 
+          className="contact-title max-w-2xl text-center mb-12"
         >
           <p className="text-xl md:text-2xl text-text-primary font-medium leading-relaxed">
             {form.title}
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="w-full max-w-lg bg-white rounded-3xl p-6 md:p-10 border border-secondary/20 shadow-[0_10px_40px_-10px_rgba(85,154,149,0.15)]"
+        <div 
+            className="contact-form-container w-full max-w-lg bg-white rounded-3xl p-6 md:p-10 border border-secondary/20 shadow-[0_10px_40px_-10px_rgba(85,154,149,0.15)]"
         >
             <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
                 <div className="relative">
@@ -150,9 +232,10 @@ const Contact = () => {
                     ></textarea>
                 </div>
 
-                <motion.button
-                    whileHover={isValid ? { scale: 1.02 } : {}}
-                    whileTap={isValid ? { scale: 0.98 } : {}}
+                <button
+                    onMouseEnter={handleButtonHover}
+                    onMouseLeave={handleButtonLeave}
+                    onMouseDown={handleButtonTap}
                     className={`w-full py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group ${
                         isValid 
                         ? "bg-[#559A95] hover:bg-[#4A8A85] text-white cursor-pointer shadow-lg shadow-[#559A95]/30" 
@@ -165,7 +248,7 @@ const Contact = () => {
                     <svg className={`w-5 h-5 transition-transform ${isValid ? "group-hover:translate-x-1" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                     </svg>
-                </motion.button>
+                </button>
                 
                 <div className="flex items-center justify-center gap-2 text-xs text-gray-500 mt-2">
                     <svg className="w-3 h-3 text-[#A1A1AA]" fill="currentColor" viewBox="0 0 24 24">
@@ -174,7 +257,7 @@ const Contact = () => {
                     <span>{form.disclaimer}</span>
                 </div>
             </form>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
