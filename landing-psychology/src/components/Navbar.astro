@@ -23,7 +23,7 @@ const currentPath = Astro.url.pathname;
           <a 
             href={item.href} 
             class:list={[
-              "text-gray-700 font-medium transition-all duration-200 relative group hover:text-[#559A95]",
+              "text-black font-medium transition-all duration-200 relative group hover:text-[#559A95]",
               currentPath === item.href ? "text-[#559A95]" : ""
             ]}
           >
@@ -54,14 +54,10 @@ const currentPath = Astro.url.pathname;
   import gsap from 'gsap';
 
   const navbar = document.getElementById('navbar');
-  const heroSection = document.getElementById('hero');
-  
-  // Scroll Effect
-  const updateNavbar = () => {
-    const heroHeight = heroSection ? heroSection.offsetHeight : 0;
-    const threshold = heroHeight > 0 ? heroHeight - 80 : 50; // Use hero height or fallback
 
-    if (window.scrollY > threshold) {
+  // Scroll Effect: Transparent at top, solid when scrolling
+  const updateNavbar = () => {
+    if (window.scrollY > 50) {
       navbar?.classList.remove('bg-transparent', 'py-4');
       navbar?.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-2');
     } else {
@@ -71,7 +67,6 @@ const currentPath = Astro.url.pathname;
   };
 
   window.addEventListener('scroll', updateNavbar);
-  // Call once on load to set initial state
   updateNavbar();
 
    // Initial Animation
