@@ -5,6 +5,16 @@ const { hero } = siteData;
 
 <section id="hero" class="relative w-full min-h-screen flex items-end justify-between bg-[#C8BDAE] overflow-hidden pt-20">
   
+  <!-- Mobile Background Image -->
+  <div class="absolute inset-0 z-0 md:hidden">
+    <img 
+      src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1768426070/_MG_1487_mtlt0e.jpg" 
+      alt="Daniela Rodriguez" 
+      class="w-full h-full object-cover object-top"
+    />
+    <div class="absolute inset-0 bg-black/20"></div>
+  </div>
+  
   <!-- Content Container -->
   <div class="container mx-auto px-6 md:px-12 relative z-20 flex flex-col-reverse md:flex-row h-full items-end">
     
@@ -22,15 +32,22 @@ const { hero } = siteData;
             {hero.subtitle}
           </p>
           
-          <p class="text-white/90 font-serif italic text-lg md:text-xl">
+          <p class="text-white/90 font-serif italic text-lg md:text-xl mb-8">
             Atención en presencial o virtual.
           </p>
+
+          <a 
+            href="#contacto" 
+            class="inline-block bg-[#559A95] text-white px-8 py-4 rounded-xl font-medium text-lg transition-all duration-300 hover:bg-[#457D79] hover:shadow-lg hover:-translate-y-0.5"
+          >
+            Contáctanos
+          </a>
       </div>
 
     </div>
 
     <!-- Right Image Side -->
-    <div class="w-full md:w-[45%] flex items-end justify-center md:justify-end relative h-[50vh] md:h-full">
+    <div class="desktop-only hidden md:flex w-full md:w-[45%] items-end justify-end relative h-[50vh] md:h-full">
         <!-- Image positioned at bottom -->
          <img 
           src={hero.image} 
@@ -42,3 +59,11 @@ const { hero } = siteData;
   </div>
 
 </section>
+
+<style>
+  @media (max-width: 768px) {
+    .desktop-only {
+      display: none !important;
+    }
+  }
+</style>

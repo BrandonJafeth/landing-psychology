@@ -1,70 +1,59 @@
 ---
 import siteData from '../data/site.json';
-const { navigation, meta } = siteData;
+import NavbarMobile from '../components/react/NavbarMobile';
+
+const { navigation } = siteData;
+const currentPath = Astro.url.pathname;
 ---
 
-<nav id="navbar" class="w-full fixed top-0 z-50 transition-all duration-300 py-5 bg-transparent">
-  <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
-    <div class="flex items-center gap-3">
-      <div id="nav-logo" class="w-10 h-10 rounded-full bg-[#559A95] flex items-center justify-center text-white shadow-md cursor-pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-        </svg>
-      </div>
-      <div class="flex flex-col">
-        <span id="site-author" class="text-sm text-gray-800 font-medium transition-colors duration-300">{meta.author}</span>
-      </div>
-    </div>
-
-    <div class="hidden md:flex items-center gap-8">
-      {navigation.map((item) => (
-        <a 
-          href={item.href} 
-          class="nav-link text-gray-700 hover:text-[#559A95] transition-colors duration-300 font-medium relative group inline-block"
-        >
-          {item.label}
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#559A95] transition-all duration-300 group-hover:w-full"></span>
-        </a>
-      ))}
-    </div>
-
-    
-
-    {/* Mobile Menu Button */}
-    <button 
-      id="mobile-menu-btn"
-      class="md:hidden text-gray-800 p-2 transition-colors duration-300"
-      aria-label="Toggle menu"
-    >
-      <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 block">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-      </svg>
-      <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 hidden">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-  </div>
-
-  {/* Mobile Menu */}
-  <div 
-    id="mobile-menu"
-    class="absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-t border-gray-100 shadow-xl md:hidden overflow-hidden h-0 opacity-0 hidden"
-  >
-    <div class="flex flex-col p-6 gap-6 items-center">
-      {navigation.map((item) => (
-        <a 
-          href={item.href} 
-          class="mobile-nav-link text-[#666666] hover:text-[#559A95] font-medium text-xl"
-        >
-          {item.label}
-        </a>
-      ))}
-      <a 
-        href="#contacto" 
-        class="mobile-cta-button bg-[#559A95] text-white px-8 py-3 rounded-xl font-semibold text-center w-full max-w-xs shadow-lg shadow-[#559A95]/20"
-      >
-        Agendar sesión
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-4"
+>
+  <div class="container mx-auto px-4 md:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3">
+         <img id="nav-logo" src="/Icono.png" alt="Logo" class="h-12 md:h-14 w-auto object-contain cursor-pointer hover:scale-105 transition-transform duration-300" />
       </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        {navigation.map((item) => (
+          <a 
+            href={item.href} 
+            class:list={[
+              "text-gray-700 font-medium transition-all duration-200 relative group hover:text-[#559A95]",
+              currentPath === item.href ? "text-[#559A95]" : ""
+            ]}
+          >
+            {item.label}
+            <span class:list={[
+               "absolute -bottom-1 left-0 w-full h-0.5 bg-[#559A95] transition-transform duration-300 origin-left",
+               currentPath === item.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+            ]}></span>
+          </a>
+        ))}
+      </div>
+
+      <!-- Desktop Actions -->
+      <div class="hidden md:flex items-center gap-6">
+        <a
+            href="#contacto"
+            class="px-6 py-2.5 rounded-full font-medium bg-[#559A95] text-white hover:bg-[#4A8A85] transition-all duration-300 transform hover:scale-105 shadow-md shadow-[#559A95]/20"
+        >
+            Agendar sesión
+        </a>
+      </div>
+
+      <!-- Mobile Menu (React Component) -->
+      <div class="md:hidden">
+        <NavbarMobile 
+            client:load 
+            navLinks={navigation} 
+            currentPath={currentPath} 
+        />
+      </div>
     </div>
   </div>
 </nav>
@@ -73,112 +62,29 @@ const { navigation, meta } = siteData;
   import gsap from 'gsap';
 
   const navbar = document.getElementById('navbar');
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIconOpen = document.getElementById('menu-icon-open');
-  const menuIconClose = document.getElementById('menu-icon-close');
-  const navLogo = document.getElementById('nav-logo');
-  const siteName = document.getElementById('site-name');
-  const siteAuthor = document.getElementById('site-author');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const ctaButton = document.querySelector('.cta-button');
-  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link, .mobile-cta-button');
-
-  let isOpen = false;
-
+  const heroSection = document.getElementById('hero');
+  
   // Scroll Effect
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      navbar?.classList.remove('bg-transparent', 'py-5');
-      navbar?.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-3');
-      
-      // Keep text dark on scroll (since hero bg is light, text starts dark and stays dark)
-      // No need to switch colors unless we want specific active states
+  const updateNavbar = () => {
+    const heroHeight = heroSection ? heroSection.offsetHeight : 0;
+    const threshold = heroHeight > 0 ? heroHeight - 80 : 50; // Use hero height or fallback
 
+    if (window.scrollY > threshold) {
+      navbar?.classList.remove('bg-transparent', 'py-4');
+      navbar?.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-2');
     } else {
-      navbar?.classList.add('bg-transparent', 'py-5');
-      navbar?.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+      navbar?.classList.add('bg-transparent', 'py-4');
+      navbar?.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-2');
     }
-  });
+  };
 
-  // Initial Animation
+  window.addEventListener('scroll', updateNavbar);
+  // Call once on load to set initial state
+  updateNavbar();
+
+   // Initial Animation
   gsap.fromTo(navbar, 
     { y: -100, opacity: 0 },
     { y: 0, opacity: 1, duration: 1.0, ease: "power2.out" }
   );
-
-  // Mobile Menu Toggle
-  mobileMenuBtn?.addEventListener('click', () => {
-    isOpen = !isOpen;
-    if (isOpen) {
-        if(mobileMenu) {
-            mobileMenu.classList.remove('hidden');
-            gsap.to(mobileMenu, {
-                height: "auto",
-                opacity: 1,
-                duration: 0.3,
-                ease: "power2.out",
-                display: "block"
-            });
-        }
-        menuIconOpen?.classList.add('hidden');
-        menuIconClose?.classList.remove('hidden');
-    } else {
-        if(mobileMenu) {
-            gsap.to(mobileMenu, {
-                height: 0,
-                opacity: 0,
-                duration: 0.3,
-                ease: "power2.in",
-                onComplete: () => {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        }
-        menuIconOpen?.classList.remove('hidden');
-        menuIconClose?.classList.add('hidden');
-    }
-    
-    // Animate button
-    gsap.to(mobileMenuBtn, { scale: 0.9, duration: 0.1, yoyo: true, repeat: 1 });
-  });
-
-  // Mobile Link Clicks (Close Menu)
-  mobileNavLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      isOpen = false;
-      if(mobileMenu) {
-        gsap.to(mobileMenu, {
-            height: 0,
-            opacity: 0,
-            duration: 0.3,
-            ease: "power2.in",
-            onComplete: () => {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-      }
-      menuIconOpen?.classList.remove('hidden');
-      menuIconClose?.classList.add('hidden');
-    });
-  });
-
-  // Interactions
-  navLinks.forEach(link => {
-    link.addEventListener('mouseenter', () => gsap.to(link, { scale: 1.05, duration: 0.2 }));
-    link.addEventListener('mouseleave', () => gsap.to(link, { scale: 1, duration: 0.2 }));
-    link.addEventListener('mousedown', () => gsap.to(link, { scale: 0.95, duration: 0.1, yoyo: true, repeat: 1 }));
-  });
-
-  if(navLogo) {
-    navLogo.addEventListener('mouseenter', () => gsap.to(navLogo, { rotate: 10, scale: 1.1, duration: 0.3 }));
-    navLogo.addEventListener('mouseleave', () => gsap.to(navLogo, { rotate: 0, scale: 1, duration: 0.3 }));
-  }
-
-  if(ctaButton) {
-    ctaButton.addEventListener('mouseenter', () => gsap.to(ctaButton, { scale: 1.05, backgroundColor: "#4A8A85", duration: 0.2 }));
-    ctaButton.addEventListener('mouseleave', () => gsap.to(ctaButton, { scale: 1, backgroundColor: "#559A95", duration: 0.2 }));
-    ctaButton.addEventListener('mousedown', () => gsap.to(ctaButton, { scale: 0.95, duration: 0.1 }));
-    ctaButton.addEventListener('mouseup', () => gsap.to(ctaButton, { scale: 1.05, duration: 0.1 }));
-  }
 </script>
