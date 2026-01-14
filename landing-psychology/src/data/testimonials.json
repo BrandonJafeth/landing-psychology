@@ -10,7 +10,6 @@
       "name": "María González",
       "age": "32 años",
       "text": "Las sesiones me ayudaron a encontrar paz interior y a gestionar mi ansiedad. Ahora me siento más segura de mí misma.",
-      "image": "/testimonial-1.jpg",
       "position": { "top": "10%", "left": "5%" }
     },
     {
@@ -18,7 +17,6 @@
       "name": "Carlos Ramírez",
       "age": "28 años",
       "text": "Un espacio seguro donde pude trabajar mis emociones. La terapia cambió mi perspectiva de vida completamente.",
-      "image": "/testimonial-2.jpg",
       "position": { "top": "15%", "right": "8%" }
     },
     {
@@ -26,7 +24,6 @@
       "name": "Ana López",
       "age": "35 años",
       "text": "Encontré herramientas valiosas para manejar el estrés laboral. Me siento más equilibrada y en control de mis decisiones.",
-      "image": "/testimonial-3.jpg",
       "position": { "bottom": "20%", "left": "10%" }
     },
     {
@@ -34,7 +31,6 @@
       "name": "Luis Torres",
       "age": "41 años",
       "text": "La terapia me ayudó a mejorar mis relaciones personales. Aprendí a comunicarme de manera más efectiva y empática.",
-      "image": "/testimonial-4.jpg",
       "position": { "bottom": "15%", "right": "12%" }
     }
   ]

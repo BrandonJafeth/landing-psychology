@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Playfair Display', serif; /* Setting Playfair as main font as requested */
   
   --color-primary: #559A95;
   --color-secondary: #61B39C;
   --color-accent: #4A8A85;
   --color-background: #FFFFFF;
-  --color-text-primary: #2C2C2C;
+  --color-text-primary: #333333;
   --color-text-secondary: #666666;
 
   --animate-float: float 6s ease-in-out infinite;

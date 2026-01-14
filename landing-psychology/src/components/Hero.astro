@@ -1,0 +1,44 @@
+---
+import siteData from '../data/site.json';
+const { hero } = siteData;
+---
+
+<section id="hero" class="relative w-full min-h-screen flex items-end justify-between bg-[#C8BDAE] overflow-hidden pt-20">
+  
+  <!-- Content Container -->
+  <div class="container mx-auto px-6 md:px-12 relative z-20 flex flex-col-reverse md:flex-row h-full items-end">
+    
+    <!-- Left Text Side - Bottom Aligned -->
+    <div class="w-full md:w-[55%] flex flex-col justify-end pb-12 md:pb-24 z-20">
+      
+      <h1 class="text-6xl md:text-7xl lg:text-9xl font-serif text-white leading-[0.9] mb-8">
+        Daniela<br />Rodriguez
+      </h1>
+
+      <div class="md:max-w-xl">
+           <p class="text-white/90 text-sm md:text-lg leading-relaxed mb-10 font-light tracking-wide">
+            Lic. en Psicología, especializada en bienestar emocional y salud mental. 
+            <br />
+            {hero.subtitle}
+          </p>
+          
+          <p class="text-white/90 font-serif italic text-lg md:text-xl">
+            Atención en presencial o virtual.
+          </p>
+      </div>
+
+    </div>
+
+    <!-- Right Image Side -->
+    <div class="w-full md:w-[45%] flex items-end justify-center md:justify-end relative h-[50vh] md:h-full">
+        <!-- Image positioned at bottom -->
+         <img 
+          src={hero.image} 
+          alt={hero.title}
+          class="w-auto h-full md:h-[90vh] object-contain object-bottom drop-shadow-2xl translate-y-0"
+        />
+    </div>
+
+  </div>
+
+</section>

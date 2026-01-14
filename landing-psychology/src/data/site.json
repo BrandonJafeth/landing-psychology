@@ -1,20 +1,18 @@
 {
   "meta": {
-    "siteName": "Psicologa",
+    "siteName": "Daniela Rodriguez",
     "author": "Daniela Rodriguez",
-    "tagline": "Tu bienestar es mi prioridad",
-    "subtitle": "Cada día es una oportunidad para crecer, sanar y descubrir tu mejor versión",
-    "description": "Acompañamiento profesional y empático para tu salud mental y bienestar emocional.",
-    "language": "es-MX"
+    "tagline": "Psicología Clínica y Bienestar",
+    "subtitle": "Atención en Inglés y Español en presencial o virtual.",
+    "description": "Psicología Clínica y Bienestar. Atención en Inglés y Español.",
+    "language": "es-CR"
   },
   "hero": {
-    "titleLine1": "Un espacio seguro",
-    "titleLine2Prefix": "para",
-    "titleHighlight": "entenderte",
-    "titleLine2Suffix": "y sanar",
-    "subtitle": "Acompañamiento profesional y humano en tu proceso de bienestar emocional",
-    "ctaText": "Agenda tu primera sesión",
-    "ctaLink": "#contacto"
+    "title": "Daniela Rodriguez",
+    "subtitle": "Psicoterapia y capacitaciones para mejorar los estilos de vida y tener una vida más plena y saludable.",
+    "ctaText": "Agendar Cita",
+    "ctaLink": "#contacto",
+    "image": "https://res.cloudinary.com/dkwvaxxdw/image/upload/e_background_removal/f_png/v1768407201/_MG_1544_avmwex.jpg"
   },
   "services": {
     "titlePrefix": "MIS MODALIDADES DE",

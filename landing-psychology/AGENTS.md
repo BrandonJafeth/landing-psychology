@@ -23,24 +23,21 @@
 
 ---
 
-## 🎨 Paleta de Colores
+## 🎨 Paleta de Colores y Tipografía
 
 ```css
 :root {
-  --primary: #559A95;      /* Teal oscuro - Principal */
-  --secondary: #61B39C;    /* Teal claro - Secundario */
+  --primary: #559A95;      /* Teal - Principal */
   --background: #FFFFFF;   /* Fondo blanco limpio */
-  --text-primary: #2C2C2C; /* Texto principal */
-  --text-secondary: #666666; /* Texto secundario */
-  --accent: #4A8A85;       /* Acento más oscuro */
+  --text-main: #333333;    /* Texto general (legibilidad) */
+  --font-main: 'Playfair Display', serif; /* Tipografía Estándar */
 }
 ```
 
 **Aplicación:**
-- **Primary (#559A95)**: Botones principales, encabezados importantes, elementos de énfasis
-- **Secondary (#61B39C)**: Hover states, elementos secundarios, highlights
-- **Background**: Fondo principal, tarjetas, secciones alternas
-- **Text**: Jerarquía tipográfica clara y accesible
+- **Primary (#559A95)**: Botones, encabezados, elementos clave.
+- **Background (#FFFFFF)**: Fondo general.
+- **Tipografía**: Se utilizará **Playfair Display** como tipografía estándar para todo el sitio (títulos y textos).
 
 ---
 
@@ -86,6 +83,7 @@ ls -la
 ### 1. Minimalismo Digital
 - **Una acción principal por sección**
 - **Espacios en blanco generosos** (ratio 60/40)
+- **Tipografía**: **Playfair Display** (Google Fonts) como estándar principal.
 - **Tipografía clara y legible** (16px mínimo para body)
 - **Máximo 3 niveles de jerarquía visual**
 - **NO usar emojis ni iconos decorativos** a menos que se solicite explícitamente. Priorizar el uso de tipografía y espacio.
@@ -122,17 +120,18 @@ src/
 │   │   └── Section.astro
 │   ├── sections/
 │   │   ├── Hero.astro
-│   │   ├── About.astro
-│   │   ├── Services.astro
-│   │   ├── Testimonials.astro
-│   │   └── Contact.astro
+│   │   ├── Methods.astro          // Seccion: Mis métodos
+│   │   ├── IndividualTherapy.astro // Seccion: Terapia individual
+│   │   ├── Training.astro         // Seccion: Capacitación y conferencias
+│   │   ├── WellnessTools.astro    // Seccion: Herramientas de bienestar (Blog)
+│   │   └── Connect.astro          // Seccion: ¿Tiene preguntas? (CTA/Contacto)
 │   └── forms/
 │       └── ContactForm.astro
 ├── data/
-│   ├── site.json           // Datos generales del sitio
-│   ├── services.json       // Servicios ofrecidos
-│   ├── testimonials.json   // Testimonios de pacientes
-│   └── faqs.json          // Preguntas frecuentes
+│   ├── site.json           // Datos generales y consultorios
+│   ├── methods.json        // Métodos (EMDR, TCC, etc)
+│   ├── posts.json          // Entradas del blog/herramientas
+│   └── services.json       // Información general de servicios
 ├── layouts/
 │   └── Layout.astro       // Layout principal
 ├── pages/
@@ -653,94 +652,75 @@ Sitemap: https://www.ejemplo.com/sitemap.xml
 ```json
 {
   "meta": {
-    "siteName": "Psicóloga [Nombre]",
-    "tagline": "Tu bienestar mental es mi prioridad",
-    "description": "Terapia psicológica profesional y personalizada",
-    "author": "Dra. [Nombre Completo]",
-    "language": "es-MX"
+    "siteName": "Daniela Rodriguez",
+    "tagline": "Psicología Clínica y Bienestar",
+    "description": "Atención en Inglés y Español en presencial o virtual.",
+    "author": "Daniela Rodriguez",
+    "language": "es-CR"
   },
   "contact": {
-    "email": "contacto@ejemplo.com",
-    "phone": "+52 xxx xxx xxxx",
-    "whatsapp": "+52xxxxxxxxxx",
-    "address": {
-      "street": "Calle X #123",
-      "city": "Ciudad",
-      "state": "Estado",
-      "country": "México",
-      "postalCode": "12345"
-    },
-    "schedule": "Lun - Vie: 9:00 - 18:00"
+    "email": "contacto@danielarodriguez.com",
+    "phone": "+506 xxxx xxxx",
+    "locations": [
+      "Paseo Del Mar, Huacas, Santa Cruz, Guanacaste",
+      "San Pedro, Roosevelt, San José"
+    ]
   },
   "social": {
-    "facebook": "https://facebook.com/...",
-    "instagram": "https://instagram.com/...",
-    "linkedin": "https://linkedin.com/..."
+    "facebook": "",
+    "instagram": "",
+    "linkedin": ""
   }
+}
+```
+
+#### methods.json
+```json
+{
+  "methods": [
+    {
+      "id": "emdr",
+      "title": "Terapia de EMDR para el trauma",
+      "description": "Reprocesar experiencias traumáticas para disminuir su carga emocional.",
+      "highlight": "Mayor respaldo científico para tratar el trauma."
+    },
+    {
+      "id": "cbt",
+      "title": "Terapia cognitivo conductual",
+      "description": "Enfoque en lo que las personas piensan, más que en lo que hacen.",
+      "highlight": "Terapia con más respaldo científico."
+    }
+  ]
+}
+```
+
+#### posts.json
+```json
+{
+  "posts": [
+    {
+      "id": "ansiedad",
+      "title": "Cómo liberarse de la ansiedad paralizante",
+      "date": "2024-12-31",
+      "url": "..."
+    }
+  ]
 }
 ```
 
 #### services.json
 ```json
 {
-  "services": [
-    {
-      "id": "terapia-individual",
-      "title": "Terapia Individual",
-      "description": "Espacio seguro para trabajar en tu desarrollo personal",
-      "icon": "user",
-      "features": [
-        "Sesiones de 50 minutos",
-        "Enfoque personalizado",
-        "Confidencialidad garantizada"
-      ],
-      "duration": "50 min",
-      "format": ["Presencial", "Online"]
-    }
-  ]
-}
-```
-
-#### testimonials.json
-```json
-{
-  "testimonials": [
-    {
-      "id": 1,
-      "name": "María G.",
-      "initials": "MG",
-      "rating": 5,
-      "text": "Excelente profesional. Me ayudó a superar momentos difíciles con empatía y profesionalismo.",
-      "date": "2024-01-15",
-      "verified": true
-    }
-  ]
-}
-```
-
-#### faqs.json
-```json
-{
-  "faqs": [
-    {
-      "id": 1,
-      "question": "¿Cuánto dura cada sesión?",
-      "answer": "Cada sesión tiene una duración de 50 minutos aproximadamente.",
-      "category": "general"
-    },
-    {
-      "id": 2,
-      "question": "¿Ofrecen terapia online?",
-      "answer": "Sí, ofrezco sesiones tanto presenciales como por videollamada.",
-      "category": "modalidad"
-    },
-    {
-      "id": 3,
-      "question": "¿Cómo sé si necesito terapia?",
-      "answer": "Si sientes que tus emociones o situaciones actuales interfieren con tu vida diaria, la terapia puede ayudarte.",
-      "category": "general"
-    }
-  ]
+  "individual": {
+    "title": "Terapia individual",
+    "price": "30.000 por sesión",
+    "description": "Trabajo sobre patrones de conducta.",
+    "modalities": ["Inglés", "Español", "Presencial", "Virtual"]
+  },
+  "training": {
+    "title": "Capacitación y conferencias",
+    "description": "Talleres orientados al desarrollo emocional y bienestar laboral."
+  }
 }
 ```
 

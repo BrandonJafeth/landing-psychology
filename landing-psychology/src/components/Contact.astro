@@ -1,0 +1,198 @@
+---
+import siteData from '../data/site.json';
+const { form, email, phone, location } = siteData.contact;
+---
+
+<section id="contacto" class="relative py-20 bg-[#F9FAFB] overflow-hidden">
+  <!-- Decorative Blobs -->
+  <div class="blob-1 absolute top-10 left-10 w-32 h-32 bg-[#559A95]/10 rounded-full blur-xl z-0"></div>
+  <div class="blob-2 absolute bottom-20 right-10 w-40 h-40 bg-[#61B39C]/10 rounded-full blur-xl z-0"></div>
+  <div class="blob-3 absolute top-1/2 left-1/4 w-24 h-24 bg-[#559A95]/5 rounded-full blur-lg z-0"></div>
+  <div class="blob-4 absolute bottom-1/3 right-1/4 w-36 h-36 bg-[#61B39C]/5 rounded-full blur-lg z-0"></div>
+
+  <div class="container mx-auto px-6 max-w-5xl relative z-10">
+    <div class="contact-title text-center mb-16 opacity-0 translate-y-[20px]">
+      <span class="text-[#559A95] font-bold tracking-widest text-sm uppercase mb-3 block">Contacto</span>
+      <h2 class="text-4xl md:text-5xl font-serif text-[#1a1a1a] mb-6 max-w-2xl mx-auto leading-tight">
+        {form.title}
+      </h2>
+      <div class="flex flex-wrap justify-center gap-8 mt-8 text-[#666666]">
+         <div class="flex items-center gap-2">
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[#559A95]">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+             </svg>
+             <span>{email}</span>
+         </div>
+         <div class="flex items-center gap-2">
+           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[#559A95]">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+           </svg>
+           <span>{location}</span>
+         </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl shadow-gray-100/50">
+      <form id="contact-form" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <label for="name" class="text-sm font-medium text-[#333333] ml-1">Nombre</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              placeholder={form.namePlaceholder}
+              class="w-full px-5 py-3 rounded-xl bg-gray-50 border border-gray-100 focus:border-[#559A95] focus:bg-white focus:ring-2 focus:ring-[#559A95]/20 outline-none transition-all duration-300"
+              required
+            />
+          </div>
+          
+          <div class="space-y-2">
+            <label for="email" class="text-sm font-medium text-[#333333] ml-1">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder={form.emailPlaceholder}
+              class="w-full px-5 py-3 rounded-xl bg-gray-50 border border-gray-100 focus:border-[#559A95] focus:bg-white focus:ring-2 focus:ring-[#559A95]/20 outline-none transition-all duration-300"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label for="phone" class="text-sm font-medium text-[#333333] ml-1">Teléfono</label>
+           <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              placeholder={form.phonePlaceholder}
+              class="w-full px-5 py-3 rounded-xl bg-gray-50 border border-gray-100 focus:border-[#559A95] focus:bg-white focus:ring-2 focus:ring-[#559A95]/20 outline-none transition-all duration-300"
+            />
+        </div>
+
+        <div class="space-y-2">
+          <label for="message" class="text-sm font-medium text-[#333333] ml-1">Mensaje</label>
+          <textarea 
+            id="message" 
+            name="message" 
+            rows="4" 
+            placeholder={form.messagePlaceholder}
+            class="w-full px-5 py-3 rounded-xl bg-gray-50 border border-gray-100 focus:border-[#559A95] focus:bg-white focus:ring-2 focus:ring-[#559A95]/20 outline-none transition-all duration-300 resize-none"
+            required
+          ></textarea>
+        </div>
+
+        <div class="pt-4 flex flex-col items-center gap-4">
+          <button 
+            type="submit"
+            class="w-full md:w-auto px-10 py-4 bg-[#559A95] text-white rounded-xl font-semibold text-lg hover:bg-[#4A8A85] transform hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-[#559A95]/30 cursor-pointer"
+          >
+            {form.buttonText}
+          </button>
+          <p class="text-xs text-[#666666] opacity-70">
+            {form.disclaimer}
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { validateForm } from '../utils/validators';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Background Organic Blobs
+  gsap.to('.blob-1', {
+    y: -10,
+    rotation: 5,
+    duration: 8,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+  });
+
+  gsap.to('.blob-2', {
+    y: 15,
+    rotation: -5,
+    duration: 9,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut",
+    delay: 1
+  });
+
+  gsap.to('.blob-3', {
+    scale: 1.05,
+    rotation: 3,
+    duration: 10,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut",
+    delay: 2
+  });
+
+  gsap.to('.blob-4', {
+    scale: 1.1,
+    rotation: -3,
+    duration: 11,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut",
+    delay: 0.5
+  });
+
+  // Content Animations
+  gsap.to('.contact-title', {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: '.contact-title',
+      start: "top 85%",
+      once: true
+    }
+  });
+
+  // Form handling
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  if(form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name') as string,
+        email: formData.get('email') as string,
+        phone: formData.get('phone') as string,
+        message: formData.get('message') as string
+      };
+      
+      const { valid } = validateForm(data);
+      
+      if (valid) {
+        // Here you would typically send data to a backend
+        alert('Gracias por tu mensaje. Te contactaremos pronto.');
+        form.reset();
+      } else {
+        alert('Por favor verifica los campos.');
+      }
+    });
+
+    // Simple interaction for inputs
+    const inputs = form.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('focus', () => {
+        gsap.to(input, { scale: 1.01, duration: 0.2 });
+      });
+      input.addEventListener('blur', () => {
+        gsap.to(input, { scale: 1, duration: 0.2 });
+      });
+    });
+  }
+</script>
