@@ -5,42 +5,52 @@ const { hero } = siteData;
 
 <section id="hero" class="relative w-full min-h-screen bg-white overflow-hidden">
   
+  <!-- Mobile Background Image (Full Screen with Overlay) -->
+  <div class="md:hidden absolute inset-0 w-full h-full z-0">
+      <img 
+          src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1768426070/_MG_1487_mtlt0e.jpg" 
+          alt="Daniela Rodriguez" 
+          class="w-full h-full object-cover object-top"
+      />
+      <!-- Dark gradient overlay for text readability -->
+      <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+
   <!-- Desktop Layout Container -->
   <div class="relative w-full h-full min-h-screen flex flex-col md:block">
     
     <!-- Left Side: Content -->
-    <!-- Content is placed comfortably on the left with z-index 10. 
-         The image will sit on top (z-20) and clip the view. -->
-    <div class="w-full md:w-3/4 lg:w-2/3 relative z-10 flex flex-col justify-center px-6 md:px-12 lg:px-24 py-32 bg-white h-auto md:h-screen">
+    <!-- 
+      Mobile changes: 
+      - bg-transparent (removed bg-white from base class)
+      - h-screen (full height)
+      - justify-end (text at bottom)
+      - text-white (all text white on mobile)
+    -->
+    <div class="w-full md:w-3/4 lg:w-2/3 relative z-10 flex flex-col justify-end md:justify-center px-6 md:px-12 lg:px-24 pb-24 pt-20 md:py-32 md:bg-white h-screen">
       
-      <div class="max-w-xl lg:max-w-2xl animate-fade-in-up pt-20 md:pt-0">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-[#1a1a1a] leading-[1.1] mb-6">
+      <div class="max-w-xl lg:max-w-2xl animate-fade-in-up">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-white md:text-[#1a1a1a] leading-[1.1] mb-6">
           Daniela Rodríguez
         </h1>
 
-        <p class="text-[#333333] text-lg md:text-xl lg:text-2xl leading-relaxed mb-4 font-normal max-w-lg">
+        <p class="text-white/90 md:text-[#333333] text-lg md:text-xl lg:text-2xl leading-relaxed mb-4 font-normal max-w-lg">
           Lic. en Psicología, especializada en bienestar emocional y salud mental. 
         </p>
         
-        <p class="text-[#666666] font-serif italic text-lg lg:text-xl leading-relaxed mb-10 max-w-lg">
+        <p class="text-white/80 md:text-[#666666] font-serif italic text-lg lg:text-xl leading-relaxed mb-10 max-w-lg">
           Psicoterapia y capacitaciones para mejorar los estilos de vida y tener una vida más plena y saludable.
         </p>
 
-        <div class="flex flex-row gap-5 items-center">
+        <div class="flex flex-col sm:flex-row gap-5 items-start sm:items-center">
           <a 
             href="#contacto" 
-            class="inline-block bg-[#559A95] text-white px-8 py-3 rounded-lg font-medium text-lg transition-all duration-300 hover:bg-[#457D79] hover:shadow-lg hover:-translate-y-1"
+            class="inline-block bg-[#559A95] text-white px-10 py-4 rounded-lg font-medium text-xl transition-all duration-300 hover:bg-[#457D79] hover:shadow-lg hover:-translate-y-1 w-auto text-center"
           >
-            Agendar Cita
+            Contáctanos
           </a>
           
-          <a 
-            href="#sobre-mi" 
-            class="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-lg text-[#333333] transition-all duration-300 hover:text-[#559A95] group"
-          >
-            Conoce más
-            <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
-          </a>
+    
         </div>
       </div>
     </div>
@@ -61,16 +71,6 @@ const { hero } = siteData;
           <!-- Subtle overlay -->
           <div class="absolute inset-0 bg-black/5 mix-blend-multiply"></div>
       </div>
-    </div>
-
-    <!-- Mobile Image (Stacked) -->
-    <div class="md:hidden w-full h-[50vh] relative order-first">
-        <img 
-            src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1768426070/_MG_1487_mtlt0e.jpg" 
-            alt="Daniela Rodriguez" 
-            class="w-full h-full object-cover object-top"
-        />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent"></div>
     </div>
 
   </div>
