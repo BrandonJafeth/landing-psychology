@@ -3,34 +3,25 @@ import siteData from '../data/site.json';
 const { navigation, contact, social, footer } = siteData;
 ---
 
-<footer class="bg-[#559A95] text-white relative overflow-hidden">
+<footer class="bg-primary text-white relative overflow-hidden">
   <!-- Decorative Blobs -->
   <div class="blob-1 absolute top-20 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
-  <div class="blob-2 absolute top-1/3 right-20 w-56 h-56 bg-[#61B39C]/20 rounded-full blur-3xl"></div>
+  <div class="blob-2 absolute top-1/3 right-20 w-56 h-56 bg-secondary/20 rounded-full blur-3xl"></div>
   <div class="blob-3 absolute bottom-32 left-1/4 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
-  <div class="blob-4 absolute bottom-20 right-1/3 w-48 h-48 bg-[#4A8A85]/15 rounded-full blur-2xl"></div>
+  <div class="blob-4 absolute bottom-20 right-1/3 w-48 h-48 bg-accent/15 rounded-full blur-2xl"></div>
 
   <!-- Decorative Shapes -->
   <div class="shape-1 absolute top-40 right-1/4 w-20 h-20 bg-white/10 rounded-full"></div>
-  <div class="shape-2 absolute top-60 left-1/4 w-24 h-20 bg-[#61B39C]/15 rounded-[40%_60%_70%_30%/40%_50%_60%_50%]"></div>
+  <div class="shape-2 absolute top-60 left-1/4 w-24 h-20 bg-secondary/15 rounded-[40%_60%_70%_30%/40%_50%_60%_50%]"></div>
   <div class="shape-3 absolute bottom-40 left-20 w-36 h-28 bg-white/10 rounded-[50%_50%_50%_50%/60%_60%_40%_40%]"></div>
 
-  <!-- Hero Section -->
-  <div class="relative z-10 py-16 px-6 text-center">
-    <h2 class="footer-hero-item text-3xl md:text-4xl font-light mb-4 opacity-0 translate-y-[30px]">
-      {siteData.meta.tagline}
-    </h2>
-    <p class="footer-hero-item text-lg md:text-xl text-white/80 max-w-3xl mx-auto opacity-0 translate-y-[30px]">
-      {siteData.meta.subtitle}
-    </p>
-  </div>
 
   <!-- Main Footer Content -->
   <div class="relative z-10 border-t border-white/20 py-12 px-6">
     <div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
       
       <!-- Brand Section -->
-      <div class="footer-grid-item col-span-2 lg:col-span-1 opacity-0 translate-y-[30px]">
+      <div class="footer-grid-item col-span-2 lg:col-span-1">
         <div class="flex items-center gap-3 mb-4">
           <img src="/Icono%20blanco.png" alt="Logo" class="h-12 md:h-14 w-auto object-contain" />
         </div>
@@ -40,7 +31,7 @@ const { navigation, contact, social, footer } = siteData;
       </div>
 
       <!-- Navigation -->
-      <div class="footer-grid-item col-span-1 opacity-0 translate-y-[30px]">
+      <div class="footer-grid-item col-span-1">
         <h4 class="text-lg font-semibold mb-4">Navegación</h4>
         <nav class="space-y-2">
           {navigation.map((item) => (
@@ -55,14 +46,14 @@ const { navigation, contact, social, footer } = siteData;
       </div>
 
       <!-- Contact Info -->
-      <div class="footer-grid-item col-span-1 opacity-0 translate-y-[30px]">
+      <div class="footer-grid-item col-span-1">
         <h4 class="text-lg font-semibold mb-4">Contacto</h4>
         <div class="space-y-3">
           <a 
             href={`mailto:${contact.email}`}
             class="flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-300 text-sm group"
           >
-            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
             <span class="group-hover:underline">{contact.email}</span>
@@ -72,14 +63,14 @@ const { navigation, contact, social, footer } = siteData;
             href={`tel:${contact.phone.replace(/\s/g, '')}`}
             class="flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-300 text-sm group"
           >
-            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
             <span class="group-hover:underline">{contact.phone}</span>
           </a>
           
           <div class="flex items-center gap-2 text-white/70 text-sm">
-            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
@@ -89,7 +80,7 @@ const { navigation, contact, social, footer } = siteData;
       </div>
 
       <!-- Social Media -->
-      <div class="footer-grid-item col-span-2 lg:col-span-1 opacity-0 translate-y-[30px]">
+      <div class="footer-grid-item col-span-2 lg:col-span-1">
         <h4 class="text-lg font-semibold mb-4">Sígueme</h4>
         <div class="flex gap-4">
           <a
@@ -139,7 +130,7 @@ const { navigation, contact, social, footer } = siteData;
 
   <!-- Bottom Bar -->
   <div 
-    class="footer-bottom relative z-10 border-t border-white/20 py-6 px-6 opacity-0 translate-y-[20px]"
+    class="footer-bottom relative z-10 border-t border-white/20 py-6 px-6"
   >
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-white/60">
       <p>{footer.copyright}</p>
@@ -170,10 +161,10 @@ const { navigation, contact, social, footer } = siteData;
   });
 
   // Staggered Entrance Animations
-  const fadeIn = (selector: string | number, delay = 0, triggerStart = "top 90%") => {
-    gsap.to(selector, {
-      opacity: 1, 
-      y: 0, 
+  const fadeIn = (selector: string, delay = 0, triggerStart = "top 90%") => {
+    gsap.from(selector, {
+      opacity: 0, 
+      y: 30, 
       duration: 0.8, 
       stagger: 0.1, 
       ease: "power2.out",
@@ -186,9 +177,8 @@ const { navigation, contact, social, footer } = siteData;
     });
   };
 
-  fadeIn('.footer-hero-item');
   fadeIn('.footer-grid-item', 0.2, "top 85%");
-  fadeIn('.footer-bottom', 0.3, "bottom bottom");
+  fadeIn('.footer-bottom', 0.3, "top 95%");
 
   // Hover handlers for social icons
   const socialIcons = document.querySelectorAll('.social-icon');
