@@ -147,7 +147,7 @@ export default function NavbarMobile({ navLinks, currentPath }: NavbarMobileProp
             onClick={closeMenu}
             className="text-2xl sm:text-3xl font-bold font-serif text-white/90 hover:text-white mt-8 border-2 border-white/30 px-8 py-3 rounded-full hover:bg-white/10 transition-all"
           >
-            Agendar Sesión
+            Agendar Cita
           </a>
         </nav>
       </div>
