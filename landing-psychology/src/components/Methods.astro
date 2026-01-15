@@ -18,28 +18,28 @@ const { methods } = methodsData;
     </div>
 
     <!-- Grid de Métodos -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {methods.map((method) => (
-        <div class="flex gap-6">
-          <!-- Columna Icono + Linea -->
-          <div class="flex flex-col items-center shrink-0">
-            <!-- Icono -->
-            <div class="w-12 h-12">
-               <img src={method.icon} alt={method.title} class="w-full h-full object-contain opacity-60" />
+        <div class="flex flex-col gap-6 p-8 border-l border-b border-gray-200 hover:border-[#559A95] hover:shadow-sm transition-all duration-300 group bg-white">
+          
+          <div class="flex items-center gap-4">
+             <!-- Columna Icono -->
+            <div class="shrink-0 w-14 h-14 flex items-center justify-center">
+              <img src={method.icon} alt={method.title} class="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
             </div>
-            <!-- Línea Vertical -->
-            <div class="w-px h-full bg-gray-300 mt-4"></div>
+             <!-- Titulo -->
+            <h3 class="text-xl text-gray-800 font-serif leading-tight group-hover:text-[#559A95] transition-colors">
+              {method.title}
+            </h3>
           </div>
 
           <!-- Columna Texto -->
-          <div class="pb-8">
-            <h3 class="text-2xl text-gray-700 font-serif mb-4 leading-tight">
-              {method.title}
-            </h3>
-            <p class="text-gray-600 leading-relaxed mb-6 font-light">
+          <div>
+            <p class="text-gray-600 leading-relaxed mb-6 font-light text-sm">
               {method.description}
             </p>
-            <p class="text-[#559A95] font-medium text-sm border-t border-gray-100 pt-4">
+            <div class="w-10 h-0.5 bg-[#559A95] opacity-30 group-hover:opacity-100 group-hover:w-20 transition-all duration-300 mb-2"></div>
+            <p class="text-[#559A95] font-medium text-xs">
               {method.highlight}
             </p>
           </div>
