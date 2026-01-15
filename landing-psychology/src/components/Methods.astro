@@ -1,0 +1,51 @@
+---
+import methodsData from '../data/methods.json';
+
+const { methods } = methodsData;
+---
+
+<section id="metodos" class="py-24 bg-white">
+  <div class="container mx-auto px-4 md:px-8">
+    
+    <!-- Encabezado de Sección -->
+    <div class="text-center mb-20">
+      <span class="text-gray-500 uppercase tracking-widest text-sm font-medium">
+        Formación y enfoque
+      </span>
+      <h2 class="text-4xl md:text-5xl text-[#559A95] mt-4 font-serif">
+        Mis métodos
+      </h2>
+    </div>
+
+    <!-- Grid de Métodos -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+      {methods.map((method) => (
+        <div class="flex gap-6">
+          <!-- Columna Icono + Linea -->
+          <div class="flex flex-col items-center shrink-0">
+            <!-- Icono -->
+            <div class="w-12 h-12">
+               <img src={method.icon} alt={method.title} class="w-full h-full object-contain opacity-60" />
+            </div>
+            <!-- Línea Vertical -->
+            <div class="w-px h-full bg-gray-300 mt-4"></div>
+          </div>
+
+          <!-- Columna Texto -->
+          <div class="pb-8">
+            <h3 class="text-2xl text-gray-700 font-serif mb-4 leading-tight">
+              {method.title}
+            </h3>
+            <p class="text-gray-600 leading-relaxed mb-6 font-light">
+              {method.description}
+            </p>
+            <p class="text-[#559A95] font-medium text-sm border-t border-gray-100 pt-4">
+              {method.highlight}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,25 @@
+{
+  "methods": [
+    {
+      "id": "sistemica",
+      "title": "Terapia Sistémica Familiar",
+      "description": "En este enfoque, no vemos al individuo de forma aislada, sino como parte de un sistema de relaciones. Analizamos las dinámicas de comunicación y los roles que se juegan en la pareja o familia.",
+      "highlight": "Es el método por excelencia para resolver conflictos de pareja y familiares.",
+      "icon": "https://img.icons8.com/?size=100&id=4cLT70cqr5UA&format=png&color=000000"
+    },
+    {
+      "id": "tcc",
+      "title": "Terapia Cognitivo Conductual",
+      "description": "Nos centramos en identificar patrones de pensamiento que generan malestar. Trabajamos juntos para modificar estas creencias y desarrollar conductas más saludables en el presente.",
+      "highlight": "Herramientas prácticas con gran respaldo científico para la ansiedad y depresión.",
+      "icon": "https://img.icons8.com/?size=100&id=PRvVYq35TJBg&format=png&color=000000"
+    },
+    {
+      "id": "humanista",
+      "title": "Enfoque Humanista Integrativo",
+      "description": "Creamos un espacio seguro y libre de juicios donde tú eres el experto de tu propia vivencia. El objetivo es potenciar tus recursos internos para afrontar las crisis vitales.",
+      "highlight": "Centrado en el crecimiento personal, la empatía y la escucha activa.",
+      "icon": "https://img.icons8.com/?size=100&id=25630&format=png&color=000000"
+    }
+  ]
+}
