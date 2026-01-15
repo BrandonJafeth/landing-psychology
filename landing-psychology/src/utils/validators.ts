@@ -19,8 +19,8 @@ export const validateForm = (formData: Record<string, string>): ValidationResult
     errors.email = 'Por favor ingresa un email válido';
   }
 
-  // Phone validation (optional but if present must be valid)
-  if (formData.phone && !phonePattern.test(formData.phone)) {
+  // Phone validation
+  if (!formData.phone || !phonePattern.test(formData.phone)) {
     errors.phone = 'Por favor ingresa un número de teléfono válido';
   }
 
