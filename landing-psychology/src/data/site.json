@@ -11,7 +11,7 @@
     "title": "Daniela Rodriguez",
     "subtitle": "Psicoterapia y capacitaciones para mejorar los estilos de vida y tener una vida más plena y saludable.",
     "ctaText": "Agendar Cita",
-    "ctaLink": "#contacto",
+    "ctaLink": "/contacto",
     "image": "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1768407057/_MG_1556_xoka4k.jpg"
   },
   "services": {
@@ -107,7 +107,7 @@
     },
     {
       "label": "Contacto",
-      "href": "#contacto"
+      "href": "/contacto"
     }
   ],
   "footer": {
