@@ -4,6 +4,14 @@ import NavbarMobile from '../components/react/NavbarMobile';
 
 const { navigation } = siteData;
 const currentPath = Astro.url.pathname;
+const isHome = currentPath === '/';
+
+const navLinks = navigation.map(item => {
+  if (!isHome && item.href.startsWith('#')) {
+        return { ...item, href: `/${item.href}` };
+  }
+  return item;
+});
 ---
 
 <nav
@@ -19,18 +27,18 @@ const currentPath = Astro.url.pathname;
 
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-8">
-        {navigation.map((item) => (
+        {navLinks.map((item) => (
           <a 
             href={item.href} 
             class:list={[
               "text-black font-medium transition-all duration-200 relative group hover:text-[#559A95]",
-              currentPath === item.href ? "text-[#559A95]" : ""
+              (currentPath === item.href || (currentPath === '/' && item.href === '/')) ? "text-[#559A95]" : ""
             ]}
           >
             {item.label}
             <span class:list={[
                "absolute -bottom-1 left-0 w-full h-0.5 bg-[#559A95] transition-transform duration-300 origin-left",
-               currentPath === item.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+               (currentPath === item.href || (currentPath === '/' && item.href === '/')) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
             ]}></span>
           </a>
         ))}
@@ -51,7 +59,7 @@ const currentPath = Astro.url.pathname;
       <div class="md:hidden">
         <NavbarMobile 
             client:load 
-            navLinks={navigation} 
+            navLinks={navLinks} 
             currentPath={currentPath} 
         />
       </div>
