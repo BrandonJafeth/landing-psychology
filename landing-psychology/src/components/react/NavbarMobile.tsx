@@ -43,9 +43,6 @@ export default function NavbarMobile({ navLinks, currentPath }: NavbarMobileProp
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
 
-  // Theme toggle functionality removed as it might conflict with site design, 
-  // but keeping state for UI consistency if requested later.
-  // For now, simpler implementation focusing on the Menu.
   
   const toggleTheme = () => {
     const newIsDark = !isDark;

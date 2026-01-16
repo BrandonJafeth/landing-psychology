@@ -43,12 +43,11 @@ import testimonialsData from '../data/testimonials.json';
             <!-- Image -->
             <div class="flex justify-center mb-4 mt-4">
               <div 
-                class="relative w-20 h-20 rounded-full overflow-hidden border-4 border-[#559A95]/20 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300"
+              class="relative w-20 h-20 rounded-full overflow-hidden border-4 border-[#559A95]/20 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300"
               >
-                <div class="w-full h-full bg-gradient-to-br from-[#559A95] to-[#61B39C] flex items-center justify-center text-white text-2xl font-bold">
-                   {/* Fallback initials or image */}
-                   { testimonial.image ? <img src={testimonial.image} alt={testimonial.name} class="w-full h-full object-cover" /> : testimonial.name.charAt(0) }
-                </div>
+              <div class="w-full h-full bg-gradient-to-br from-[#559A95] to-[#61B39C] flex items-center justify-center text-white text-2xl font-bold">
+                 {testimonial.name.charAt(0)}
+              </div>
               </div>
             </div>
 
