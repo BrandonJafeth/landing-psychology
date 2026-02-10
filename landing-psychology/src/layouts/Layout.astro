@@ -15,6 +15,27 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL(image, Astro.url);
+
+const schema = {
+	"@context": "https://schema.org",
+	"@type": "Psychologist",
+	"name": siteData.meta.siteName,
+	"image": socialImageURL.href,
+	"description": description,
+	"url": canonicalURL.href,
+	"telephone": siteData.contact.phone,
+	"email": siteData.contact.email,
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": siteData.contact.address.street,
+		"addressLocality": siteData.contact.address.city,
+		"addressRegion": siteData.contact.address.state,
+		"postalCode": siteData.contact.address.postalCode,
+		"addressCountry": siteData.contact.address.country
+	},
+	"openingHours": siteData.contact.schedule, 
+	"priceRange": "$$"
+};
 ---
 
 <!doctype html>
@@ -31,7 +52,11 @@ const socialImageURL = new URL(image, Astro.url);
 		<meta name="description" content={description} />
 		<meta name="author" content={siteData.meta.author} />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="robots" content="index, follow" />
 		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Schema.org -->
+		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
