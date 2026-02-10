@@ -1,11 +1,13 @@
 {
   "meta": {
     "siteName": "Daniela Rodriguez",
+    "siteUrl": "https://danielarodriguezpsicologa.com",
     "author": "Daniela Rodriguez",
     "tagline": "Psicología Clínica y Bienestar",
     "subtitle": "Atención en Inglés y Español en presencial o virtual.",
-    "description": "Psicología Clínica y Bienestar. Atención en Inglés y Español.",
-    "language": "es-CR"
+    "description": "Psicóloga Clínica especialista en terapia individual, de pareja y familiar. Atención bilingüe (Español/Inglés) presencial y virtual para tu bienestar.",
+    "language": "es-CR",
+    "ogImage": "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1768407057/_MG_1556_xoka4k.jpg"
   },
   "hero": {
     "title": "Daniela Rodriguez",
