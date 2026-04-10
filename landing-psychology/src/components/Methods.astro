@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import methodsData from '../data/methods.json';
 
 const { methods } = methodsData;
@@ -25,7 +26,15 @@ const { methods } = methodsData;
           <div class="flex items-center gap-4">
              <!-- Columna Icono -->
             <div class="shrink-0 w-14 h-14 flex items-center justify-center">
-              <img src={method.icon} alt={method.title} class="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
+              <Image 
+                src={method.icon} 
+                alt={method.title} 
+                class="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity" 
+                width={56}
+                height={56}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
              <!-- Titulo -->
             <h3 class="text-xl text-gray-800 font-serif leading-tight group-hover:text-[#559A95] transition-colors">

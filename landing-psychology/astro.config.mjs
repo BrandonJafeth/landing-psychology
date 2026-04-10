@@ -8,6 +8,9 @@ import sitemap, { ChangeFreqEnum } from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://danielarodriguezpsicologa.com',
+  image: {
+    domains: ['res.cloudinary.com', 'img.icons8.com'],
+  },
   integrations: [
     react(), 
     sitemap({
