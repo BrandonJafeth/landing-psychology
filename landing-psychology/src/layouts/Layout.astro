@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { 
-	title = siteData.meta.siteName + " | " + siteData.meta.tagline,
+	title = `${siteData.meta.siteName} | ${siteData.meta.tagline}`,
 	description = siteData.meta.description,
 	image = siteData.meta.ogImage 
 } = Astro.props;
@@ -16,47 +16,213 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL(image, Astro.url);
 
-const schema = {
+// Schema.org - Psychologist (Primary)
+const psychologistSchema = {
 	"@context": "https://schema.org",
 	"@type": "Psychologist",
-	"name": siteData.meta.siteName,
+	"@id": `${siteData.meta.siteUrl}/#psychologist`,
+	"name": "Daniela Rodriguez",
+	"alternateName": "Daniela Rodriguez Psicóloga",
 	"image": socialImageURL.href,
-	"description": description,
-	"url": canonicalURL.href,
+	"description": "Psicóloga en Nicoya, Guanacaste. Especialista en terapia individual, de pareja y familiar. Atención presencial en Clínica Dreams y terapia online.",
+	"url": siteData.meta.siteUrl,
 	"telephone": siteData.contact.phone,
 	"email": siteData.contact.email,
 	"address": {
 		"@type": "PostalAddress",
 		"streetAddress": siteData.contact.address.street,
-		"addressLocality": siteData.contact.address.city,
-		"addressRegion": siteData.contact.address.state,
+		"addressLocality": "Nicoya",
+		"addressRegion": "Guanacaste",
 		"postalCode": siteData.contact.address.postalCode,
-		"addressCountry": siteData.contact.address.country
+		"addressCountry": "CR"
 	},
-	"openingHours": siteData.contact.schedule, 
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": 10.1395783,
+		"longitude": -85.4492964
+	},
+	"openingHoursSpecification": {
+		"@type": "OpeningHoursSpecification",
+		"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+		"opens": "09:00",
+		"closes": "18:00"
+	},
+	"priceRange": "$$",
+	"areaServed": [
+		{
+			"@type": "City",
+			"name": "Nicoya",
+			"containedInPlace": {
+				"@type": "State",
+				"name": "Guanacaste",
+				"containedInPlace": {
+					"@type": "Country",
+					"name": "Costa Rica"
+				}
+			}
+		},
+		{
+			"@type": "State",
+			"name": "Guanacaste"
+		},
+		{
+			"@type": "Country",
+			"name": "Costa Rica"
+		}
+	],
+	"knowsLanguage": ["es", "en"],
+	"hasOfferCatalog": {
+		"@type": "OfferCatalog",
+		"name": "Servicios de Psicología",
+		"itemListElement": [
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Terapia Individual en Nicoya",
+					"description": "Sesiones personalizadas de psicoterapia individual presencial en Nicoya y online."
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Terapia de Pareja en Nicoya",
+					"description": "Terapia de pareja para fortalecer vínculos y mejorar la comunicación."
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Terapia Familiar en Nicoya",
+					"description": "Terapia familiar para mejorar dinámicas y relaciones en el núcleo familiar."
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Terapia Online Costa Rica",
+					"description": "Sesiones de psicoterapia online para todo Costa Rica, bilingüe español e inglés."
+				}
+			}
+		]
+	},
+	"sameAs": [
+		siteData.social.instagram,
+		siteData.social.facebook,
+		siteData.social.linkedin
+	]
+};
+
+// Schema.org - LocalBusiness (for Google Maps/Local Pack)
+const localBusinessSchema = {
+	"@context": "https://schema.org",
+	"@type": "MedicalBusiness",
+	"@id": `${siteData.meta.siteUrl}/#localbusiness`,
+	"name": "Daniela Rodriguez - Psicóloga en Nicoya",
+	"image": socialImageURL.href,
+	"description": description,
+	"url": siteData.meta.siteUrl,
+	"telephone": siteData.contact.phone,
+	"email": siteData.contact.email,
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "Clínica Dreams",
+		"addressLocality": "Nicoya",
+		"addressRegion": "Guanacaste",
+		"postalCode": "50201",
+		"addressCountry": "CR"
+	},
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": 10.1395783,
+		"longitude": -85.4492964
+	},
+	"openingHoursSpecification": {
+		"@type": "OpeningHoursSpecification",
+		"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+		"opens": "09:00",
+		"closes": "18:00"
+	},
 	"priceRange": "$$"
 };
+
+// Schema.org - WebSite
+const websiteSchema = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	"@id": `${siteData.meta.siteUrl}/#website`,
+	"url": siteData.meta.siteUrl,
+	"name": "Daniela Rodriguez - Psicóloga en Nicoya, Guanacaste",
+	"description": description,
+	"publisher": {
+		"@id": `${siteData.meta.siteUrl}/#psychologist`
+	},
+	"inLanguage": "es-CR"
+};
+
+// Schema.org - BreadcrumbList
+const breadcrumbSchema = {
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+			"@type": "ListItem",
+			"position": 1,
+			"name": "Inicio",
+			"item": siteData.meta.siteUrl
+		}
+	]
+};
+
+// Add contacto breadcrumb if on contact page
+if (Astro.url.pathname === '/contacto' || Astro.url.pathname === '/contacto/') {
+	breadcrumbSchema.itemListElement.push({
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Contacto",
+		"item": `${siteData.meta.siteUrl}/contacto`
+	});
+}
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-CR">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/png" href="/Icono.png" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<title>{title}</title>
 		
-		<!-- Meta Tags -->
+		<!-- Primary Meta Tags -->
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
 		<meta name="author" content={siteData.meta.author} />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="robots" content="index, follow" />
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta name="keywords" content={siteData.meta.keywords} />
 		<link rel="canonical" href={canonicalURL} />
 
-		<!-- Schema.org -->
-		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+		<!-- Geo Meta Tags (critical for local SEO) -->
+		<meta name="geo.region" content="CR-G" />
+		<meta name="geo.placename" content="Nicoya, Guanacaste, Costa Rica" />
+		<meta name="geo.position" content="10.1395783;-85.4492964" />
+		<meta name="ICBM" content="10.1395783, -85.4492964" />
+
+		<!-- Language and Region -->
+		<link rel="alternate" hreflang="es-CR" href={canonicalURL} />
+		<link rel="alternate" hreflang="es" href={canonicalURL} />
+		<link rel="alternate" hreflang="x-default" href={canonicalURL} />
+		<meta http-equiv="content-language" content="es-CR" />
+
+		<!-- Schema.org Structured Data -->
+		<script type="application/ld+json" set:html={JSON.stringify(psychologistSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
@@ -64,6 +230,11 @@ const schema = {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={socialImageURL} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Daniela Rodriguez - Psicóloga en Nicoya, Guanacaste" />
+		<meta property="og:locale" content="es_CR" />
+		<meta property="og:site_name" content="Daniela Rodriguez - Psicóloga en Nicoya" />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
@@ -71,6 +242,7 @@ const schema = {
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={socialImageURL} />
+		<meta property="twitter:image:alt" content="Daniela Rodriguez - Psicóloga en Nicoya, Guanacaste" />
 
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">

@@ -3,11 +3,12 @@
     "siteName": "Daniela Rodriguez",
     "siteUrl": "https://danielarodriguezpsicologa.com",
     "author": "Daniela Rodriguez",
-    "tagline": "Psicología Clínica y Bienestar",
+    "tagline": "Psicóloga en Nicoya | Terapia Presencial y Online",
     "subtitle": "Atención en Inglés y Español en presencial o virtual.",
-    "description": "Psicóloga Clínica especialista en terapia individual, de pareja y familiar. Atención bilingüe (Español/Inglés) presencial y virtual para tu bienestar.",
+    "description": "Psicóloga en Nicoya, Guanacaste. Daniela Rodriguez ofrece terapia individual, de pareja y familiar en Clínica Dreams. Atención presencial en Nicoya y terapia online en todo Costa Rica. Especialista en ansiedad, depresión y bienestar emocional.",
     "language": "es-CR",
-    "ogImage": "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1768407057/_MG_1556_xoka4k.jpg"
+    "ogImage": "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1768407057/_MG_1556_xoka4k.jpg",
+    "keywords": "psicóloga en Nicoya, psicóloga Nicoya, terapia Nicoya, psicóloga Guanacaste, terapia de pareja Nicoya, psicóloga Costa Rica, Daniela Rodriguez psicóloga, Clínica Dreams Nicoya, terapia individual Nicoya, terapia familiar Nicoya, psicóloga online Costa Rica, salud mental Nicoya, ansiedad Nicoya, depresión Guanacaste, terapia cognitivo conductual Nicoya, psicoterapia Guanacaste"
   },
   "hero": {
     "title": "Daniela Rodriguez",
@@ -68,15 +69,15 @@
     }
   },
   "contact": {
-    "email": "contacto@psicologa.com",
+    "email": "contacto@danielarodriguezpsicologa.com",
     "phone": "+506 8686-9696",
-    "location": "Consulta online y presencial",
+    "location": "Clínica Dreams, Nicoya, Guanacaste",
     "address": {
-      "street": "Calle X #123",
-      "city": "Ciudad",
-      "state": "Estado",
-      "country": "México",
-      "postalCode": "12345"
+      "street": "Clínica Dreams",
+      "city": "Nicoya",
+      "state": "Guanacaste",
+      "country": "CR",
+      "postalCode": "50201"
     },
     "schedule": "Lun - Vie: 9:00 - 18:00",
     "form": {
@@ -90,7 +91,7 @@
     }
   },
   "social": {
-    "instagram": "https://instagram.com/psicologa",
+    "instagram": "https://www.instagram.com/danielarodriguez_psicologa/",
     "facebook": "https://facebook.com/psicologa",
     "linkedin": "https://linkedin.com/in/psicologa"
   },
